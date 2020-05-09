@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Volunteerio.Views.AddAnOpp">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" Grid.Column="0"/>
+                    <ColumnDefinition Width="Auto" Grid.Column="1"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
+                    <RowDefinition Height="75" Grid.Row="1"/>
+                </Grid.RowDefinitions>
+                <BoxView BackgroundColor="#1BAAF8" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Text="Add An Opportunity" FontSize="35" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
+                <Button BackgroundColor="Transparent" ImageSource="Hamburger.png" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Grid.Row="1" Clicked="HamburgerButton_Clicked" Grid.Column="1" Margin="0, 0, 10, 0"/>
+            </Grid>
+
+            <Frame CornerRadius="40" BorderColor="Black" Margin="20, 30, 20, 10" HeightRequest="45">
+                <Entry x:Name="OppName" Placeholder="Name" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+            </Frame>
+            <Frame CornerRadius="40" BorderColor="Black" Margin="20" HeightRequest="45">
+                <Entry x:Name="OppHours" Placeholder="Amont of Hours" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+            </Frame>
+            <Frame CornerRadius="40" BorderColor="Black" Margin="20, 10" HeightRequest="45">
+                <Entry x:Name="OppLocation" Placeholder="Location" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+            </Frame>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="OppDate" Grid.Column="0" FontSize="20" Margin="10, 0, 5, 0"/>
+                <TimePicker x:Name="OppTime" Grid.Column="1" FontSize="20" Margin="5, 0, 10, 0"/>
+            </Grid>
+            <Label HorizontalOptions="Center" x:Name="ErrorLabel"/>
+            <Button x:Name="AddOppButton" Clicked="AddOppButton_Clicked"  Margin="20" Text="Add Opportunity" FontSize="30" CornerRadius="30"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

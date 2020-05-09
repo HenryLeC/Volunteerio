@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Volunteerio.Views.Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" Grid.Column="0"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
+                    <RowDefinition Height="75" Grid.Row="1"/>
+                </Grid.RowDefinitions>
+                <Image VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" Source="Volunteerio.png" BackgroundColor="Transparent" Margin="0,0,10,0" />
+            </Grid>
+
+            <Frame CornerRadius="30" BorderColor="Black" Margin="20, 50" HeightRequest="45">
+                <Entry x:Name="UsernameField" Placeholder="Username" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+            </Frame>
+            <Frame CornerRadius="30" BorderColor="Black" Margin="20, 0" HeightRequest="45">
+                <Entry x:Name="PasswordField" IsPassword="True" Placeholder="Password" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+            </Frame>
+            <Label HorizontalOptions="Center" x:Name="FailedIndicator" Text=""/>
+            <Button CornerRadius="20" Text="LOG IN" Margin="40,40" BackgroundColor="#FFF4F4F4" x:Name="LogInButton" Clicked="LogInButton_Clicked" BorderColor="Black" BorderWidth="1"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
