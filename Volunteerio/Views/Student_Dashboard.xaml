@@ -11,7 +11,7 @@
                     <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
                     <RowDefinition Height="75" Grid.Row="1"/>
                 </Grid.RowDefinitions>
-                <BoxView BackgroundColor="#1BAAF8" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <BoxView BackgroundColor="{StaticResource HeaderColor}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Text="Your Dashboard" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
                 <Button BackgroundColor="Transparent" ImageSource="Hamburger.png" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Grid.Row="1" Clicked="HamburgerButton_Clicked" Grid.Column="1" Margin="0, 0, 10, 0"/>
             </Grid>
@@ -24,7 +24,7 @@
             <Image Source="Hours.png" HeightRequest="255" Margin="0, 0, 0, 0" x:Name="HoursImage"/>
             <Label x:Name="HoursText" Text="" Margin="0, -180, 0, 0" HorizontalOptions="Center" FontSize="100" TextColor="#1BAAF8"/>
 
-            <BoxView BackgroundColor="#1BAAF8" HeightRequest="75" WidthRequest="300" Margin=" 0,80,0,0"/>
+            <BoxView BackgroundColor="{StaticResource HeaderColor}" HeightRequest="75" WidthRequest="300" Margin=" 0,80,0,0"/>
             <Label Text="Total Hours" FontSize="40" HorizontalOptions="Center" Margin="0,-75,0,0"/>
         </StackLayout>
     </ContentPage.Content>

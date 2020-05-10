@@ -16,17 +16,17 @@
                     <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
                     <RowDefinition Height="75" Grid.Row="1"/>
                 </Grid.RowDefinitions>
-                <BoxView BackgroundColor="#1BAAF8" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <BoxView BackgroundColor="{StaticResource HeaderColor}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Text="Your Menu" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
                 <Button BackgroundColor="Transparent" ImageSource="Hamburger.png" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Grid.Row="1" Clicked="HamburgerButton_Clicked" Grid.Column="1" Margin="0, 0, 10, 0"/>
             </Grid>
-            <Button x:Name="DashButton" Clicked="DashButton_Clicked" Text="Dashboard" Margin="20, 35, 20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="#FFF4F4F4" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
-            <Button x:Name="CreatOppButton" Clicked="CreatOppButton_Clicked" Text="Create An Opportunity" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="26" BackgroundColor="#FFF4F4F4" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
-            <Button x:Name="StudentsButton" Clicked="StudentsButton_Clicked" Text="Students" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="#FFF4F4F4" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
-            <Button x:Name="SignInStudentsButton" Clicked="SignInStudentsButton_Clicked" Text="Sign in Students" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="#FFF4F4F4" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
-            <Button x:Name="NotificationsButton" Clicked="NotificationsButton_Clicked"  Text="Notifications" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="#F4F4F4" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
-            <Button x:Name="LeaderboardButton" Clicked="LeaderboardButton_Clicked" Text="Leaderboard" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="#F4F4F4" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
-            <Button x:Name="SignOutButton" Clicked="SignOutButton_Clicked" Text="Sign Out" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="#F4F4F4" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
+            <Button x:Name="DashButton" Clicked="DashButton_Clicked" Text="Dashboard" Margin="20, 35, 20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
+            <Button x:Name="CreatOppButton" Clicked="CreatOppButton_Clicked" Text="Create An Opportunity" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="26" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
+            <Button x:Name="StudentsButton" Clicked="StudentsButton_Clicked" Text="Students" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
+            <Button x:Name="SignInStudentsButton" Clicked="SignInStudentsButton_Clicked" Text="Sign in Students" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
+            <Button x:Name="NotificationsButton" Clicked="NotificationsButton_Clicked"  Text="Notifications" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
+            <Button x:Name="LeaderboardButton" Clicked="LeaderboardButton_Clicked" Text="Leaderboard" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
+            <Button x:Name="SignOutButton" Clicked="SignOutButton_Clicked" Text="Sign Out" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="#000000" BorderWidth="1" TextColor="Black"/>
 
         </StackLayout>
     </ContentPage.Content>

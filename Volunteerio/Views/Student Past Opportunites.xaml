@@ -16,7 +16,7 @@
                     <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
                     <RowDefinition Height="75" Grid.Row="1"/>
                 </Grid.RowDefinitions>
-                <BoxView BackgroundColor="#1BAAF8" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <BoxView BackgroundColor="{StaticResource HeaderColor}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Text="Your Past Opportunities" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
                 <Button BackgroundColor="Transparent" ImageSource="Hamburger.png" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Grid.Row="1" Clicked="HamburgerButton_Clicked" Grid.Column="1" Margin="0, 0, 10, 0"/>
             </Grid>
@@ -28,7 +28,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <BoxView BackgroundColor="#1BAAF8" WidthRequest="1000" Grid.ColumnSpan="2"/>
+                <BoxView BackgroundColor="{StaticResource HeaderColor}" WidthRequest="1000" Grid.ColumnSpan="2"/>
                 <Label Text="Past Opportunities" FontSize="35" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0, 0, 0" TextColor="#FFFFFF" Grid.Column="0"/>
                 <Button Margin="10" x:Name="ExportButton" BackgroundColor="Transparent" ImageSource="downloadIcon.png" HeightRequest="50" WidthRequest="50" Grid.Column="1" Clicked="ExportButton_Clicked"/>
             </Grid>
@@ -51,7 +51,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <BoxView BackgroundColor="#1BAAF8" HeightRequest="40" WidthRequest="1000" Margin="0, 25, 0, 0"/>
+            <BoxView BackgroundColor="{StaticResource HeaderColor}" HeightRequest="40" WidthRequest="1000" Margin="0, 25, 0, 0"/>
             <Label Text="Past Hours" FontSize="35" HorizontalOptions="Center" Margin="0,-50, 0, 0" TextColor="#FFFFFF"/>
             <ListView RowHeight="60" x:Name="PastHoursListView" Margin="0, 5, 0 , 0">
                 <ListView.ItemTemplate>

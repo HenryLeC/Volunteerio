@@ -19,6 +19,10 @@
                 <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
                 <Setter Property="ios:Page.UseSafeArea" Value="True"/>
             </Style>
+
+            <Color x:Key="MenuButtonBg">#FFF4F4F4</Color>
+            <Color x:Key="HeaderColor">#1BAAF8</Color>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

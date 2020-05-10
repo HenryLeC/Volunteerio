@@ -16,7 +16,7 @@
                     <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
                     <RowDefinition Height="75" Grid.Row="1"/>
                 </Grid.RowDefinitions>
-                <BoxView BackgroundColor="#1BAAF8" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <BoxView BackgroundColor="{StaticResource HeaderColor}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <Label Text="Your Notifications" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
                 <Button BackgroundColor="Transparent" ImageSource="Hamburger.png" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Grid.Row="1" Clicked="HamburgerButton_Clicked" Grid.Column="1" Margin="0, 0, 10, 0"/>
             </Grid>
