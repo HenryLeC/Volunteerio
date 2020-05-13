@@ -17,12 +17,13 @@
             </Style>
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
-                <Setter Property="ios:Page.UseSafeArea" Value="True"/>
+                <Setter Property="ios:Page.UseSafeArea" Value="False"/>
             </Style>
 
             <Color x:Key="MenuButtonBg">#FFF4F4F4</Color>
             <Color x:Key="HeaderColor">#1BAAF8</Color>
-            
+            <x:Double x:Key="InsertsHeight">0</x:Double>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

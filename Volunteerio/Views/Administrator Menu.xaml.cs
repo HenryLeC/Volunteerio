@@ -59,17 +59,6 @@ namespace Volunteerio.Views
             Navigation.PushAsync(new Views.Administrator_Notifications());
         }
 
-        protected override void OnPropertyChanged(string propertyName)
-        {
-            if (propertyName == "SafeAreaInsets")
-            {
-                On<iOS>().SetUseSafeArea(false);
-                Thickness Insets = On<iOS>().SafeAreaInsets();
-                InsertsRow.Height = Insets.Top;
-
-            }
-        }
-
         void LeaderboardButton_Clicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new Views.Leaderboard());

@@ -15,6 +15,7 @@ namespace Volunteerio
             MainPage = new NavigationPage(new Views.Login());
         }
 
+
         protected override void OnStart()
         {
             string fileName = "data.json";

@@ -5,22 +5,11 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Volunteerio.Views.Sign_In_Students">
+             x:Class="Volunteerio.Views.Sign_In_Students"
+             xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" Grid.Column="0"/>
-                    <ColumnDefinition Width="Auto" Grid.Column="1"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
-                    <RowDefinition Height="75" Grid.Row="1"/>
-                </Grid.RowDefinitions>
-                <BoxView BackgroundColor="{StaticResource HeaderColor}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                <Label Text="Sign In Students" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
-                <Button BackgroundColor="Transparent" ImageSource="Hamburger.png" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Grid.Row="1" Clicked="HamburgerButton_Clicked" Grid.Column="1" Margin="0, 0, 10, 0"/>
-            </Grid>
+            <local:HeaderControl Text="Sign In Students" HamburgerButtonClicked="HamburgerButton_Clicked"/>
             <zxing:ZXingBarcodeImageView Margin="0, 20, 0, 0" x:Name="Barcode" HeightRequest="300" WidthRequest="300"/>
             <Label Text="Have Students Scan Code In App To Get Hours" TextColor="#000000" FontSize="40" Margin="39,60,0,0"/>
         </StackLayout>

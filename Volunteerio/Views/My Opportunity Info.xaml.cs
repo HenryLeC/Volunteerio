@@ -57,16 +57,5 @@ namespace Volunteerio.Views
             
             base.OnAppearing();
         }
-
-        protected override void OnPropertyChanged(string propertyName)
-        {
-            if (propertyName == "SafeAreaInsets")
-            {
-                On<iOS>().SetUseSafeArea(false);
-                Thickness Insets = On<iOS>().SafeAreaInsets();
-                InsertsRow.Height = Insets.Top;
-
-            }
-        }
     }
 }

@@ -1,24 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             x:Class="Volunteerio.App">
-    <Application.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Button">
-                <Setter Property="android:VisualElement.Elevation" Value="0"/>
-            </Style>
-            <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="ZillaSlab"/>
-            </Style>
-            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
-                <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
-                <Setter Property="ios:Page.UseSafeArea" Value="True"/>
-            </Style>
-        </ResourceDictionary>
-    </Application.Resources>
+﻿<Application
+    x:Class="Volunteerio.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Volunteerio.UWP">
+
 </Application>

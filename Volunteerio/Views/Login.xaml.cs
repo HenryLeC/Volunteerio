@@ -92,6 +92,11 @@ namespace Volunteerio.Views
                 On<iOS>().SetUseSafeArea(false);
                 Thickness Insets = On<iOS>().SafeAreaInsets();
                 InsertsRow.Height = Insets.Top;
+                string fileName = "topInsert.txt";
+                string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+                string path = Path.Combine(documentsPath, fileName);
+
+                File.WriteAllText(path, Insets.Top.ToString());
 
             }
         }

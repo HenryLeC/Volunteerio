@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:local="clr-namespace:Volunteerio"
+      x:Class="Volunteerio.HeaderControl"
+      x:Name="Header">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" Grid.Column="0"/>
+        <ColumnDefinition Width="Auto" Grid.Column="1"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition x:Name="InsertsRow" Height="{StaticResource InsertsHeight}" Grid.Row="0"/>
+        <RowDefinition Height="75" Grid.Row="1"/>
+    </Grid.RowDefinitions>
+    
+    <BoxView BackgroundColor="{StaticResource HeaderColor}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+    <Label MaxLines="1" FontSize="30" x:Name="headerLabel" Text="{Binding Text, Source={x:Reference Header}}" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
+    <ImageButton BackgroundColor="Transparent" Source="{local:ImageResource Source=Volunteerio.Images.Hamburger.png}" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Clicked="HamburgerButton_Clicked" Grid.Row="1"  Grid.Column="1" Margin="0, 0, 10, 0" VerticalOptions="Center"/>
+</Grid>

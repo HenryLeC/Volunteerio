@@ -1,27 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Volunteerio.Views.Student_Dashboard">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Volunteerio.Views.Student_Dashboard"
+             xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" Grid.Column="0"/>
-                    <ColumnDefinition Width="Auto" Grid.Column="1"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
-                    <RowDefinition Height="75" Grid.Row="1"/>
-                </Grid.RowDefinitions>
-                <BoxView BackgroundColor="{StaticResource HeaderColor}" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                <Label Text="Your Dashboard" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="White"/>
-                <Button BackgroundColor="Transparent" ImageSource="Hamburger.png" HeightRequest="35" WidthRequest="45" x:Name="HamburgerButton" Grid.Row="1" Clicked="HamburgerButton_Clicked" Grid.Column="1" Margin="0, 0, 10, 0"/>
-            </Grid>
-            
+            <local:HeaderControl Text="Your Dashboard" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+
             <Label Text="Add Hours" HorizontalOptions="Center" FontSize="30" Margin="0, 10, 0, -10"/>
             <Entry Placeholder="Hours" x:Name="HoursEntry"/>
             <Entry Placeholder="Reason" x:Name="ReasonEntry"/>
             <Button x:Name="AddHoursButton" Clicked="AddHoursButton_Clicked" CornerRadius="30" Text="Add Hours" Margin="20, 0"/>
 
-            <Image Source="Hours.png" HeightRequest="255" Margin="0, 0, 0, 0" x:Name="HoursImage"/>
+            <Image Source="{local:ImageResource Source=Volunteerio.Images.Hours.png}" HeightRequest="255" Margin="0, 0, 0, 0" x:Name="HoursImage"/>
             <Label x:Name="HoursText" Text="" Margin="0, -180, 0, 0" HorizontalOptions="Center" FontSize="100" TextColor="#1BAAF8"/>
 
             <BoxView BackgroundColor="{StaticResource HeaderColor}" HeightRequest="75" WidthRequest="300" Margin=" 0,80,0,0"/>

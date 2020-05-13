@@ -43,17 +43,6 @@ namespace Volunteerio.Views
             Navigation.PushAsync(new Views.Administrator_Menu());
         }
 
-        protected override void OnPropertyChanged(string propertyName)
-        {
-            if (propertyName == "SafeAreaInsets")
-            {
-                On<iOS>().SetUseSafeArea(false);
-                Thickness Insets = On<iOS>().SafeAreaInsets();
-                InsertsRow.Height = Insets.Top;
-
-            }
-        }
-
         private void OppsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushAsync(new Views.My_Opportunity_Info(e.SelectedItem as Dictionary<string, string>));
