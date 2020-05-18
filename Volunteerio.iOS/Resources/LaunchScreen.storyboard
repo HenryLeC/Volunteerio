@@ -13,12 +13,12 @@
                         <viewControllerLayoutGuide type="bottom" id="244"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="247">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="250" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Volunteerio">
-                                <rect key="frame" x="10" y="274" width="394" height="207"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="250" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Voluteerio">
+                                <rect key="frame" x="10" y="345" width="394" height="207"/>
                             </imageView>
                         </subviews>
                     </view>
@@ -30,6 +30,6 @@
     </scenes>
     <color key="tintColor" colorSpace="calibratedRGB" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1"/>
     <resources>
-        <image name="Volunteerio" width="760" height="142"/>
+        <image name="Voluteerio" width="724" height="116"/>
     </resources>
 </document>

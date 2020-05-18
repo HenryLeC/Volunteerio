@@ -13,8 +13,8 @@ namespace Volunteerio
             try
             {
                 //string server = "http://73.57.34.161/";
-                //string server = "http://192.168.86.25/";
-                string server = "https://api.volunteerio.us/";
+                string server = "http://192.168.86.25/";
+                //string server = "https://api.volunteerio.us/";
 
                 //Create Client and Request
                 var client = new RestClient(server + Route)

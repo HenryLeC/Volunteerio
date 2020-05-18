@@ -38,7 +38,7 @@ namespace Volunteerio
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
 
-            App.Current.Resources["InsertsHeight"] = Double.Parse(File.ReadAllText(path));
+            InsertsRow.Height = Double.Parse(File.ReadAllText(path));
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)

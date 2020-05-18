@@ -9,7 +9,7 @@
         <ColumnDefinition Width="Auto" Grid.Column="1"/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
-        <RowDefinition x:Name="InsertsRow" Height="{StaticResource InsertsHeight}" Grid.Row="0"/>
+        <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
         <RowDefinition Height="75" Grid.Row="1"/>
     </Grid.RowDefinitions>
     

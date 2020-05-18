@@ -22,7 +22,8 @@
 
             <Color x:Key="MenuButtonBg">#FFF4F4F4</Color>
             <Color x:Key="HeaderColor">#1BAAF8</Color>
-            <x:Double x:Key="InsertsHeight">0</x:Double>
+            <Color x:Key="MenuBtnTextC">Black</Color>
+            <Color x:Key="MenuBtnBorderC">Black</Color>
 
         </ResourceDictionary>
     </Application.Resources>

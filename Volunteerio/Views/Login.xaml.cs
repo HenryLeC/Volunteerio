@@ -15,6 +15,15 @@ namespace Volunteerio.Views
         public Login()
         {
             InitializeComponent();
+
+            On<iOS>().SetUseSafeArea(false);
+            Thickness Insets = On<iOS>().SafeAreaInsets();
+            InsertsRow.Height = Insets.Top;
+            string fileName = "topInsert.txt";
+            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            string path = Path.Combine(documentsPath, fileName);
+
+            File.WriteAllText(path, Insets.Top.ToString());
         }
 
         private void LogInButton_Clicked(object sender, EventArgs e)
@@ -72,6 +81,10 @@ namespace Volunteerio.Views
             }
             catch(Exception ex)
             {
+                if (ex == null)
+                {
+                    DisplayAlert("Server Error", "Please Try Agin Later", "OK");
+                }
                 if ((ex as ServerErrorException).ErrorCode == 401)
                 {
                     DisplayAlert("Incorrect Login Details", "The Username or Pasword you enetered is incorrect.", "Ok");

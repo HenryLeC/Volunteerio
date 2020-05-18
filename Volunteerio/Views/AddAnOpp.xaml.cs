@@ -32,7 +32,7 @@ namespace Volunteerio.Views
                 {
                     {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                     {"Name", Name },
-                    {"Date", Date.ToString("yyyy-MM-dd'T'HH:mm:ss", CultureInfo.InvariantCulture) },
+                    {"Date", Date.ToString("yyyy-MM-dd'T'HH:mm:sszzz", CultureInfo.InvariantCulture) },
                     {"Location", Location },
                     {"Hours", Hours }
                 };

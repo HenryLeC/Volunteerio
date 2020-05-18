@@ -16,16 +16,22 @@ namespace Volunteerio.Views
 
         protected override void OnAppearing()
         {
+            FilterDrop.ItemsSource = new List<string>(2)
+            {
+                "School", "District"
+            };
+
             try
             {
                 string request = APIRequest.Request("Leaderboard", new Dictionary<string, string>() {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() }
+                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
+                    {"filter", "district" }
                 });
 
                 List<Dictionary<string, string>> leaderboard = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(request);
                 leaderboardListView.ItemsSource = leaderboard;
             }
-            catch
+            catch(Exception)
             {
                 DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
@@ -47,5 +53,22 @@ namespace Volunteerio.Views
             
         }
 
+        private void FilterDrop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string request = APIRequest.Request("Leaderboard", new Dictionary<string, string>() {
+                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
+                    {"filter", FilterDrop.SelectedItem.ToString().ToLower() }
+                });
+
+                List<Dictionary<string, string>> leaderboard = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(request);
+                leaderboardListView.ItemsSource = leaderboard;
+            }
+            catch
+            {
+                DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
+            }
+        }
     }
 }
