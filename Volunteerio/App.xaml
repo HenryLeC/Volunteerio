@@ -25,6 +25,11 @@
             <Color x:Key="MenuBtnTextC">Black</Color>
             <Color x:Key="MenuBtnBorderC">Black</Color>
 
+            <!--<Color x:Key="MenuButtonBg">#CCCCCC</Color>
+            <Color x:Key="HeaderColor">#CCCCCC</Color>
+            <Color x:Key="MenuBtnTextC">Black</Color>
+            <Color x:Key="MenuBtnBorderC">Black</Color>-->
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
