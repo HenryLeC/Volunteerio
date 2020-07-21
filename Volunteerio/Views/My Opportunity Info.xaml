@@ -24,6 +24,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Delete Opportunity" BackgroundColor="{StaticResource DeleteButtonBgC}" CornerRadius="25" Margin="40, 20" x:Name="DeleteButton" Clicked="DeleteButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

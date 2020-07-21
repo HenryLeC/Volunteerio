@@ -74,7 +74,7 @@ namespace Volunteerio.Views
 
                         Dictionary<string, string> responseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(APIResponse);
 
-                        await DisplayAlert("Scanned", responseDict["msg"], "OK");
+                        await DisplayAlert(responseDict["header"], responseDict["msg"], "OK");
                     }
                     catch
                     {

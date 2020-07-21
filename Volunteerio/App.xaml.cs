@@ -102,7 +102,10 @@ namespace Volunteerio
                     Dictionary<string, string> ResponseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(Response);
                     Current.Properties["Token"] = ResponseDict["key"];
                 }
-                catch { }
+                catch
+                {
+                    MainPage = new NavigationPage(new Views.Login());
+                }
             }
         }
     }

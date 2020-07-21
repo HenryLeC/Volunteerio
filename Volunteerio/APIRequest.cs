@@ -12,8 +12,8 @@ namespace Volunteerio
 
             try
             {
-                //string server = "http://73.57.34.161/";
-                //string server = "http://192.168.86.38/";
+                //string server = "http://10.30.20.228/";
+                //string server = "http://192.168.86.33/";
                 string server = "https://api.volunteerio.us/";
 
                 //Create Client and Request

@@ -24,6 +24,7 @@
             <Color x:Key="HeaderColor">#1BAAF8</Color>
             <Color x:Key="MenuBtnTextC">Black</Color>
             <Color x:Key="MenuBtnBorderC">Black</Color>
+            <Color x:Key="DeleteButtonBgC">Red</Color>
 
             <!--<Color x:Key="MenuButtonBg">#CCCCCC</Color>
             <Color x:Key="HeaderColor">#CCCCCC</Color>

@@ -51,7 +51,7 @@ namespace Volunteerio.Views
             }
             catch
             {
-                ErrorLabel.Text = "Server Error, Please Try Again Later";
+                DisplayAlert("Server Error", "Please Try Agin Later", "OK");
             }
         }
 

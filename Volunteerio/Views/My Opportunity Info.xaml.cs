@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Newtonsoft.Json;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace Volunteerio.Views
@@ -56,6 +55,28 @@ namespace Volunteerio.Views
             }
             
             base.OnAppearing();
+        }
+
+        private async void DeleteButton_Clicked(object sender, EventArgs e)
+        {
+            bool delete = await DisplayAlert("Delete Opportunity", "Are you sure you would like to delete this opportuniy?", "Delete", "Cancel");
+            if (delete)
+            {
+                string response = APIRequest.Request("DeleteOpp", new Dictionary<string, string>
+                {
+                    { "x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
+                    { "OppId", OpportunityInfo["ID"] },
+                });
+
+                if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "community")
+                {
+                    Navigation.PushAsync(new Views.Community_Member_Menu());
+                }
+                else if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
+                {
+                    Navigation.PushAsync(new Views.Administrator_Menu());
+                }
+            }
         }
     }
 }
