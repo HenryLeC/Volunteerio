@@ -19,7 +19,7 @@ namespace Volunteerio
         protected override void OnStart()
         {
             string fileName = "data.json";
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
 
             Console.WriteLine(path);
@@ -81,7 +81,7 @@ namespace Volunteerio
         protected override void OnResume()
         {
             string fileName = "data.json";
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
 
             if (File.Exists(path))

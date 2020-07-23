@@ -35,7 +35,7 @@ namespace Volunteerio
             InitializeComponent();
 
             string fileName = "topInsert.txt";
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
 
             InsertsRow.Height = Double.Parse(File.ReadAllText(path));

@@ -36,7 +36,7 @@ namespace Volunteerio.Views
         private void SignOutButton_Clicked(object sender, EventArgs e)
         {
             string fileName = "data.json";
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
             File.Delete(path);
 

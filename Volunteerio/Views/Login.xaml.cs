@@ -20,7 +20,17 @@ namespace Volunteerio.Views
             Thickness Insets = On<iOS>().SafeAreaInsets();
             InsertsRow.Height = Insets.Top;
             string fileName = "topInsert.txt";
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            string documentsPath;
+            switch (Device.RuntimePlatform)
+            {
+                case Device.UWP:
+                    documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData); //AppData Folder
+                    break;
+                default:
+                    documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+                    break;
+            }
+            Xamarin.Forms.Application.Current.Properties["docsPath"] = documentsPath;
             string path = Path.Combine(documentsPath, fileName);
 
             File.WriteAllText(path, Insets.Top.ToString());
@@ -51,7 +61,7 @@ namespace Volunteerio.Views
                     Token = ResponseDict["key"]
                 };
                 string fileName = "data.json";
-                string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+                string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
                 string path = Path.Combine(documentsPath, fileName);
 
                 File.WriteAllText(path, JsonConvert.SerializeObject(user));
@@ -106,7 +116,7 @@ namespace Volunteerio.Views
                 Thickness Insets = On<iOS>().SafeAreaInsets();
                 InsertsRow.Height = Insets.Top;
                 string fileName = "topInsert.txt";
-                string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+                string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
                 string path = Path.Combine(documentsPath, fileName);
 
                 File.WriteAllText(path, Insets.Top.ToString());
