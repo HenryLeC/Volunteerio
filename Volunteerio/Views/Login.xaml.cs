@@ -31,6 +31,7 @@ namespace Volunteerio.Views
                     break;
             }
             Xamarin.Forms.Application.Current.Properties["docsPath"] = documentsPath;
+            Console.WriteLine(documentsPath);
             string path = Path.Combine(documentsPath, fileName);
 
             File.WriteAllText(path, Insets.Top.ToString());
@@ -114,12 +115,12 @@ namespace Volunteerio.Views
             {
                 On<iOS>().SetUseSafeArea(false);
                 Thickness Insets = On<iOS>().SafeAreaInsets();
-                InsertsRow.Height = Insets.Top;
                 string fileName = "topInsert.txt";
                 string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
                 string path = Path.Combine(documentsPath, fileName);
 
                 File.WriteAllText(path, Insets.Top.ToString());
+                InsertsRow.Height = Insets.Top;
 
             }
         }

@@ -70,11 +70,11 @@ namespace Volunteerio.Views
 
                 if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "community")
                 {
-                    Navigation.PushAsync(new Views.Community_Member_Menu());
+                    await Navigation.PushAsync(new Views.Community_Member_Menu());
                 }
                 else if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
                 {
-                    Navigation.PushAsync(new Views.Administrator_Menu());
+                    await Navigation.PushAsync(new Views.Administrator_Menu());
                 }
             }
         }

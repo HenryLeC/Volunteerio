@@ -7,6 +7,7 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.IO;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace Volunteerio
 {
@@ -45,5 +46,6 @@ namespace Volunteerio
         {
             HamburgerButtonClicked(this, null);
         }
+
     }
 }

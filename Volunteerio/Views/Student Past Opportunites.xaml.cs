@@ -5,6 +5,10 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using RestSharp;
+using System.Net;
+using System.IO;
+using Xamarin.Essentials;
 
 namespace Volunteerio.Views
 {
@@ -46,21 +50,67 @@ namespace Volunteerio.Views
 
         private void ExportButton_Clicked(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    string response = APIRequest.Request("GenerateDoc", new Dictionary<string, string>()
+            //    {
+            //        { "x-access-token", Xamarin.Forms.Application.Current.Properties["Token"] as String }
+            //    });
+
+            //    //Parse Data
+            //    Dictionary<string, string> Message = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+
+            //    DisplayAlert("Email Sent", Message["msg"], "Ok");
+            //}
+            //catch
+            //{
+            //    DisplayAlert("Server Error", "Please Try Agin Later", "OK");
+            //}
+
             try
             {
-                string response = APIRequest.Request("GenerateDoc", new Dictionary<string, string>()
+                //Create Client and Request
+                var client = new RestClient(APIRequest.server + "GenerateDoc")
                 {
-                    { "x-access-token", Xamarin.Forms.Application.Current.Properties["Token"] as String }
+                    Timeout = 5000
+                };
+                var request = new RestRequest(Method.POST)
+                {
+                    AlwaysMultipartFormData = true
+                };
+                request.AddParameter("x-access-token", Xamarin.Forms.Application.Current.Properties["Token"] as string);
+
+                IRestResponse response = client.Execute(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new Exception();
+                }
+
+                string path = Path.Combine(Xamarin.Forms.Application.Current.Properties["docsPath"] as string, "ExportedOpps.pdf");
+                string path2 = "";
+                foreach (char s in path)
+                {
+                    if (s == '\\')
+                    {
+                        path2 += "/";
+                    }
+                    else
+                    {
+                        path2 += s.ToString();
+                    }
+                }
+
+                File.WriteAllBytes(path, response.RawBytes);
+                Launcher.OpenAsync(new OpenFileRequest
+                {
+                    File = new ReadOnlyFile(path, "application/pdf")
                 });
-
-                //Parse Data
-                Dictionary<string, string> Message = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
-
-                DisplayAlert("Email Sent", Message["msg"], "Ok");
             }
-            catch
+            catch (Exception ex)
             {
-                DisplayAlert("Server Error", "Please Try Agin Later", "OK");
+                Console.WriteLine(ex);
+                DisplayAlert("Error", "Server Error, Please Try Again Later", "OK");
             }
         }
     }

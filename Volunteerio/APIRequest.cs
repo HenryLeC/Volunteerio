@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using RestSharp;
 
 namespace Volunteerio
 {
     class APIRequest
     {
+
+        //public static string server = "http://10.30.20.228/";
+        //public static string server = "http://192.168.86.33/";
+        public static string server = "https://api.volunteerio.us/";
+
         public static string Request(string Route, Dictionary<string, string> Parameters)
         {
             int ErrorCode = 0;
 
             try
             {
-                //string server = "http://10.30.20.228/";
-                //string server = "http://192.168.86.33/";
-                string server = "https://api.volunteerio.us/";
-
                 //Create Client and Request
                 var client = new RestClient(server + Route)
                 {
@@ -34,25 +36,12 @@ namespace Volunteerio
 
                 IRestResponse response = client.Execute(request);
 
-                if (response.Content == null)
-                {
-                    ErrorCode = 500;
-                    throw new Exception();
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-                {
-                    ErrorCode = 401;
-                    throw new Exception();
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                if (response.StatusCode != HttpStatusCode.OK)
                 {
                     ErrorCode = 500;
                     throw new Exception();
                 }
                 return response.Content;
-
-                //Parse Response
-                 //return JsonConvert.DeserializeObject<Dictionary<string, string>>(response.Content);
             }
             catch
             {

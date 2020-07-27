@@ -18,6 +18,7 @@ namespace Volunteerio
 
         protected override void OnStart()
         {
+            // Login
             string fileName = "data.json";
             string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
