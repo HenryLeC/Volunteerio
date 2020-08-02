@@ -34,7 +34,7 @@ namespace Volunteerio
 
                 try
                 {
-                    string Response = APIRequest.Request("login", new Dictionary<string, string>() {
+                    string Response = APIRequest.Request("login", false, new Dictionary<string, string>() {
                         {"username", Uname },
                         {"password", Pass }
                     });
@@ -94,7 +94,7 @@ namespace Volunteerio
 
                 try
                 {
-                    string Response = APIRequest.Request("login", new Dictionary<string, string>() {
+                    string Response = APIRequest.Request("login", false, new Dictionary<string, string>() {
                         {"username", Uname },
                         {"password", Pass }
                     });

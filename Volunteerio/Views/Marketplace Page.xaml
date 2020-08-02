@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Volunteerio.Views.Opportunities_Page"
+             x:Class="Volunteerio.Views.Marketplace_Page"
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
@@ -21,18 +21,24 @@
                 <Entry x:Name="NameFilter" Grid.Column="0" Placeholder="Name" TextChanged="NameFilter_TextChanged"/>
                 <DatePicker x:Name="DateFilter" Grid.Column="1" DateSelected="DateFilter_DateSelected"/>
             </Grid>
-            <ListView RowHeight="60" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
+            <ListView RowHeight="200" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Path=[Name]}" FontSize="20"/>
-                                    <Label Text="{Binding Path=[Time]}" FontSize="20"/>
-                                </StackLayout>
+                                <Label Text="{Binding Path=[Name]}" FontSize="20"/>
+                                <Label Text="{Binding Path=[Sponsor]}" FontSize="20"/>
+                                <Label Text="{Binding Path=[Time]}" FontSize="20"/>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
                                     <Label Text="Hours" FontSize="20"/>
+                                </StackLayout>
+                                <Label Text="{Binding Path=[Class]}" FontSize="20"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=[CurrentVols]}" FontSize="20"/>
+                                    <Label Text=" of " FontSize="20"/>
+                                    <Label Text="{Binding Path=[MaxVols]}" FontSize="20"/>
+                                    <Label Text=" Volunteers" FontSize="20"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

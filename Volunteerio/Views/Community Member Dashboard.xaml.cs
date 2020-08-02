@@ -22,8 +22,7 @@ namespace Volunteerio.Views
 
             try
             {
-                string Response = APIRequest.Request("MyOpps", new Dictionary<string, string>() {
-                        {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() }
+                string Response = APIRequest.Request("MyOpps", true, new Dictionary<string, string>() {
                     });
 
                 //Parse Data

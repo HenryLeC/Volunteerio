@@ -54,14 +54,14 @@ namespace Volunteerio.Views
             Navigation.PushAsync(new Views.Administrator_Menu());
         }
 
-        private void NotificationsButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Views.Administrator_Notifications());
-        }
-
         void LeaderboardButton_Clicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new Views.Leaderboard());
+        }
+
+        private void InboxButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.Inbox());
         }
     }
 }

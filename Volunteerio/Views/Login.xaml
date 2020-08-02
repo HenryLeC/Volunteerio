@@ -16,7 +16,7 @@
                     <RowDefinition x:Name="InsertsRow" Height="0" Grid.Row="0"/>
                     <RowDefinition Height="Auto" Grid.Row="1"/>
                 </Grid.RowDefinitions>
-                <Image VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Source="{local:ImageResource Source=Volunteerio.Images.Volunteerio.png}" BackgroundColor="Transparent" Margin="10, 0"/>
+                <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Source="{local:ImageResource Source=Volunteerio.Images.Volunteerio.png}" BackgroundColor="Transparent" Margin="10, 0"/>
             </Grid>
 
             <Frame CornerRadius="30" BorderColor="Black" Margin="20, 50" HeightRequest="45">

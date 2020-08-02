@@ -21,9 +21,8 @@ namespace Volunteerio.Views
 
             try
             {
-                string response = APIRequest.Request("StudentHours", new Dictionary<string, string>()
+                string response = APIRequest.Request("StudentHours", true, new Dictionary<string, string>()
                 {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                     {"id", Student["ID"] }
                 });
                 Dictionary<string, List<Dictionary<string, string>>> StudentHours = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(response);
@@ -33,19 +32,15 @@ namespace Volunteerio.Views
                 Hours.Text += StudentInfo["Hours"];
 
                 PastOppsListView.ItemsSource = StudentHours["PastOpps"];
-                UnConfHoursListView.ItemsSource = StudentHours["UnConfHours"];
-                ConfHoursListView.ItemsSource = StudentHours["ConfHours"];
+                HoursListView.ItemsSource = StudentHours["Hours"];
+
                 if (StudentHours["PastOpps"].Count == 0)
                 {
                     PastOppsListView.HeightRequest = 50;
                 }
-                if (StudentHours["UnConfHours"].Count == 0)
+                if (StudentHours["Hours"].Count == 0)
                 {
-                    UnConfHoursListView.HeightRequest = 50;
-                }
-                if (StudentHours["ConfHours"].Count == 0)
-                {
-                    ConfHoursListView.HeightRequest = 50;
+                    HoursListView.HeightRequest = 50;
                 }
             }
             catch
@@ -66,9 +61,8 @@ namespace Volunteerio.Views
             {
                 StudentInfo["Hours"] = (int.Parse(StudentInfo["Hours"]) + int.Parse((((Button)sender).CommandParameter as Dictionary<string, string>)["Hours"])).ToString();
 
-                APIRequest.Request("confirmHours", new Dictionary<string, string>()
+                APIRequest.Request("confirmHours", true, new Dictionary<string, string>()
                 {
-                    { "x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                     { "StuHrData", (((Button)sender).CommandParameter as Dictionary<string,string>)["StuHrData"]}
                 });
             }
@@ -83,9 +77,8 @@ namespace Volunteerio.Views
         {
             try
             {
-                APIRequest.Request("deleteHours", new Dictionary<string, string>()
+                APIRequest.Request("deleteHours", true, new Dictionary<string, string>()
                 {
-                    { "x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                     { "StuHrData", (((Button)sender).CommandParameter as Dictionary<string,string>)["StuHrData"]}
                 });
             }

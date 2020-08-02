@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Volunteerio.Views.Student_Dashboard"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:local="clr-namespace:Volunteerio"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
     <ContentPage.Content>
         <StackLayout>
             <local:HeaderControl Text="Your Dashboard" HamburgerButtonClicked="HamburgerButton_Clicked"/>
@@ -10,13 +11,16 @@
             <Label Text="Add Hours" HorizontalOptions="Center" FontSize="30" Margin="0, 10, 0, -10"/>
             <Entry Placeholder="Hours" x:Name="HoursEntry"/>
             <Entry Placeholder="Reason" x:Name="ReasonEntry"/>
-            <Button x:Name="AddHoursButton" Clicked="AddHoursButton_Clicked" CornerRadius="30" Text="Add Hours" Margin="20, 0"/>
+            <Button x:Name="AddHoursButton" Clicked="AddHoursButton_Clicked" CornerRadius="30" Text="Add Hours" Margin="20, 0" BackgroundColor="{StaticResource MenuButtonBg}"/>
 
-            <Image Source="{local:ImageResource Source=Volunteerio.Images.Hours.png}" HeightRequest="255" Margin="0, 0, 0, 0" x:Name="HoursImage"/>
+            <forms:ChartView x:Name="Chart" HeightRequest="255" Margin="0"/>
+            <!--<Image Source="{local:ImageResource Source=Volunteerio.Images.Hours.png}" HeightRequest="255" Margin="0, 0, 0, 0" x:Name="HoursImage"/>
             <Label x:Name="HoursText" Text="" Margin="0, -180, 0, 0" HorizontalOptions="Center" FontSize="100" TextColor="#1BAAF8"/>
 
             <BoxView BackgroundColor="{StaticResource HeaderColor}" HeightRequest="75" WidthRequest="300" Margin=" 0,80,0,0"/>
-            <Label Text="Total Hours" FontSize="40" HorizontalOptions="Center" Margin="0,-75,0,0"/>
+            <Label Text="Total Hours" FontSize="40" HorizontalOptions="Center" Margin="0,-75,0,0"/>-->
+
+            <Button x:Name="MarketplaceButton" Clicked="MarketplaceButton_Clicked" Text="Marketplace" CornerRadius="30" Margin="20, 0" BackgroundColor="{StaticResource MenuButtonBg}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

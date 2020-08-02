@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Volunteerio.Views.Confirm_Opportunity"
+             xmlns:local="clr-namespace:Volunteerio">
+    <ContentPage.Content>
+        <StackLayout>
+            <local:HeaderControl Text="Confirm Opportunity" HamburgerButtonClicked="HeaderControl_HamburgerButtonClicked"/>
+
+            <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,30, 0, 0" FontSize="25"/>
+            <Label x:Name="OppDate" Text="Date: " Margin="30, 20 , 0 , 0" FontSize="25"/>
+            <Label x:Name="OppHours" Text="Hours: " Margin="30, 20, 0, 0" FontSize="25"/>
+            <Label x:Name="OppLocation" Text="Location: " Margin="30, 20, 0, 0" FontSize="25"/>
+            <Label x:Name="OppSponsor" Text="Sponsor: " Margin="30, 20, 0, 0" FontSize="25"/>
+            <Label x:Name="OppClass" Text="Classification: " Margin="30, 20, 0, 0" FontSize="25"/>
+            <Label x:Name="OppVols" Text="Max Volunteers: " Margin="30, 20, 0, 0" FontSize="25"/>
+            <Button x:Name="ConfOppButton" CornerRadius="30"  Text="Confirm Opportunity" Margin="30, 10, 30, 0" Clicked="OptionButton_Clicked" CommandParameter="Confirm" BackgroundColor="Green"/>
+            <Button x:Name="DelOppButton" CornerRadius="30"  Text="Delete Opportunity" Margin="30, 0, 30, 0" Clicked="OptionButton_Clicked" CommandParameter="Delete" BackgroundColor="Red"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -20,7 +20,7 @@
                 </Grid.RowDefinitions>
                 <BoxView BackgroundColor="{StaticResource HeaderColor}" WidthRequest="1000" Grid.ColumnSpan="2"/>
                 <Label Text="Past Opportunities" FontSize="35" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0, 0, 0" TextColor="#FFFFFF" Grid.Column="0"/>
-                <Button Margin="10" x:Name="ExportButton" BackgroundColor="Transparent" ImageSource="{local:ImageResource Source=Volunteerio.Images.downloadIcon.png}" HeightRequest="50" WidthRequest="50" Grid.Column="1" Clicked="ExportButton_Clicked"/>
+                <ImageButton Margin="10" x:Name="ExportButton" BackgroundColor="Transparent" Source="{local:ImageResource Source=Volunteerio.Images.downloadIcon.png}" HeightRequest="50" WidthRequest="50" Grid.Column="1" Clicked="ExportButton_Clicked"/>
             </Grid>
             
             <ListView RowHeight="60" x:Name="PastOppsListView" Margin="0, 5, 0 , 0">

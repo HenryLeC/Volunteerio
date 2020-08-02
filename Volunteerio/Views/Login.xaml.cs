@@ -44,7 +44,7 @@ namespace Volunteerio.Views
 
             try
             {
-                 string Response = APIRequest.Request("login", new Dictionary<string, string>() {
+                 string Response = APIRequest.Request("login", false, new Dictionary<string, string>() {
                     {"username", Uname },
                     {"password", Pass }
                 });

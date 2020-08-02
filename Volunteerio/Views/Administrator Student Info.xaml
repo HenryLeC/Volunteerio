@@ -6,70 +6,61 @@
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Administrator_Student_Info"
              xmlns:local="clr-namespace:Volunteerio">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToBoolCoverter x:Key="stringToBool"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <local:HeaderControl Text="Student Info" HamburgerButtonClicked="HamburgerButton_Clicked"/>
 
-            <ScrollView>
-                <StackLayout>
+            <Label Text="Student Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 04, 40" x:Name="StudentName"/>
+            <Label Text="Student ID: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40,-40, 40, 1" x:Name="StudentId"/>
+            <Label Text="No. of Hours: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 0, 40, 1" x:Name="Hours"/>
+            <Label Text="Past Opportunities" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
+            
+            <ListView RowHeight="70" x:Name="PastOppsListView" Margin="0, 5, 0 , 0" HeightRequest="200" IsEnabled="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Path=[Name]}" FontSize="20"/>
+                                <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-                    <Label Text="Student Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 04, 40" x:Name="StudentName"/>
-                    <Label Text="Student ID: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40,-40, 40, 1" x:Name="StudentId"/>
-                    <Label Text="No. of Hours: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 0, 40, 1" x:Name="Hours"/>
-                    <Label Text="Past Opportunities" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
-                    <ListView RowHeight="70" x:Name="PastOppsListView" Margin="0, 5, 0 , 0" HeightRequest="200">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout>
-                                        <Label Text="{Binding Path=[Name]}" FontSize="20"/>
-                                        <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+            <Label Text="Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
+            <ListView RowHeight="70" x:Name="HoursListView" Margin="0, 5, 0 , 0" HeightRequest="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Vertical" Grid.Column="0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=[Reason]}" FontSize="15"/>
+                                        <Label Text=" | " FontSize="15"/>
+                                        <Label Text="{Binding Path=[Confirmed]}" FontSize="15"/>
                                     </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                    <Label Text="UnConfirmed Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
-                    <ListView RowHeight="70" x:Name="UnConfHoursListView" Margin="0, 5, 0 , 0" HeightRequest="200">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <StackLayout Orientation="Vertical" Grid.Column="0">
-                                            <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
-                                            <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal" Grid.Column="2">
-                                            <Button WidthRequest="80" x:Name="DeleteButton" BackgroundColor="Red" TextColor="Black" FontSize="15" Text="Delete" Clicked="DeleteButton_Clicked"  CommandParameter="{Binding}"/>
-                                            <Button WidthRequest="80" x:Name="ConfirmButton" BackgroundColor="Green" TextColor="Black" FontSize="13" Text="Confirm" Clicked="ConfirmButton_Clicked" CommandParameter="{Binding}"/>
-                                        </StackLayout>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                    <Label Text="Confirmed Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
-                    <ListView RowHeight="70" x:Name="ConfHoursListView" Margin="0, 5, 0 , 0" HeightRequest="200">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout>
-                                        <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
-                                        <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-            </ScrollView>
+                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Grid.Column="2">
+                                    <Button WidthRequest="80" x:Name="DeleteButton" BackgroundColor="Red" TextColor="Black" FontSize="15" Text="Delete" Clicked="DeleteButton_Clicked" IsVisible="{Binding Path=[Unconfirmed], Converter={StaticResource stringToBool}}" CommandParameter="{Binding}"/>
+                                    <Button WidthRequest="80" x:Name="ConfirmButton" BackgroundColor="Green" TextColor="Black" FontSize="13" Text="Confirm" Clicked="ConfirmButton_Clicked" IsVisible="{Binding Path=[Unconfirmed], Converter={StaticResource stringToBool}}" CommandParameter="{Binding}"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

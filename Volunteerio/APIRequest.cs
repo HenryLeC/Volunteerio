@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using RestSharp;
+using Xamarin.Forms;
 
 namespace Volunteerio
 {
@@ -12,7 +13,7 @@ namespace Volunteerio
         //public static string server = "http://192.168.86.33/";
         public static string server = "https://api.volunteerio.us/";
 
-        public static string Request(string Route, Dictionary<string, string> Parameters)
+        public static string Request(string Route, bool Token, Dictionary<string, string> Parameters)
         {
             int ErrorCode = 0;
 
@@ -33,9 +34,18 @@ namespace Volunteerio
                 {
                     request.AddParameter(Attribute.Key, Attribute.Value);
                 }
+                if (Token)
+                {
+                    request.AddParameter("x-access-token", Application.Current.Properties["Token"] as string);
+                }
 
                 IRestResponse response = client.Execute(request);
 
+                if (response.StatusCode == HttpStatusCode.Unauthorized && !Token)
+                {
+                    ErrorCode = 401;
+                    throw new Exception();
+                }
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
                     ErrorCode = 500;

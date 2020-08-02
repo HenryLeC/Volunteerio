@@ -46,7 +46,12 @@ namespace Volunteerio.Views
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.Community_Member_Menu());
+            Navigation.PopAsync();
+        }
+
+        private void InboxButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.Inbox());
         }
     }
 }

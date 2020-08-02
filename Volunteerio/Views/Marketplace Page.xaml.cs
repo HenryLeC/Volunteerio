@@ -10,9 +10,9 @@ using System.Globalization;
 namespace Volunteerio.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Opportunities_Page : ContentPage
+    public partial class Marketplace_Page : ContentPage
     {
-        public Opportunities_Page()
+        public Marketplace_Page()
         {
             InitializeComponent();
         }
@@ -46,12 +46,11 @@ namespace Volunteerio.Views
             FillOpps();
         }
 
-        private void FillOpps()
+        private async void FillOpps()
         {
             try
             {
-                string Response = APIRequest.Request("Opps", new Dictionary<string, string>() {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
+                string Response = APIRequest.Request("Opps", true, new Dictionary<string, string>() {
                     {"filterName", NameFilter.Text },
                     {"filterDate", DateFilter.Date.ToString("yyyy-MM-dd'T'HH:mm:ss", CultureInfo.InvariantCulture) }
                 });
@@ -63,7 +62,7 @@ namespace Volunteerio.Views
             }
             catch
             {
-                DisplayAlert("Server Error", "Please Try Agin Later", "OK");
+                await DisplayAlert("Server Error", "Please Try Agin Later", "OK");
             }
         }
     }

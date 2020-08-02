@@ -11,11 +11,11 @@ namespace Volunteerio.Views
     public partial class My_Opportunity_Info : ContentPage
     {
 
-        readonly Dictionary<string, string> OpportunityInfo = new Dictionary<string, string>();
+        readonly Dictionary<string, string> Opp = new Dictionary<string, string>();
 
         public My_Opportunity_Info(Dictionary<string, string> OpportunityInfoPass)
         {
-            OpportunityInfo = OpportunityInfoPass;
+            Opp = OpportunityInfoPass;
 
             InitializeComponent();
         }
@@ -36,18 +36,21 @@ namespace Volunteerio.Views
         {
             try
             {
-                string response = APIRequest.Request("BookedStudents", new Dictionary<string, string>()
+                string response = APIRequest.Request("BookedStudents", true, new Dictionary<string, string>()
                 {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
-                    {"OppId", OpportunityInfo["ID"] }
+                    {"OppId", Opp["ID"] }
                 });
 
                 List<Dictionary<string, string>> students = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(response);
 
                 BookedStudentsListView.ItemsSource = students;
-                OppLocation.Text += OpportunityInfo["Location"];
-                OppTime.Text += OpportunityInfo["Time"];
-                OppName.Text += OpportunityInfo["Name"];
+                OppName.Text += Opp["Name"];
+                OppDate.Text += Opp["Time"];
+                OppLocation.Text += Opp["Location"];
+                OppHours.Text += Opp["Hours"];
+                OppSponsor.Text += Opp["Sponsor"];
+                OppClass.Text += Opp["Class"];
+                OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + " Volunteers";
             }
             catch
             {
@@ -62,10 +65,9 @@ namespace Volunteerio.Views
             bool delete = await DisplayAlert("Delete Opportunity", "Are you sure you would like to delete this opportuniy?", "Delete", "Cancel");
             if (delete)
             {
-                string response = APIRequest.Request("DeleteOpp", new Dictionary<string, string>
+                string response = APIRequest.Request("DeleteOpp", true,new Dictionary<string, string>
                 {
-                    { "x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
-                    { "OppId", OpportunityInfo["ID"] },
+                    { "OppId", Opp["ID"] },
                 });
 
                 if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "community")

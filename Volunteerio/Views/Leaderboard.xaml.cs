@@ -18,13 +18,13 @@ namespace Volunteerio.Views
         {
             FilterDrop.ItemsSource = new List<string>(2)
             {
-                "School", "District"
+                "District", "School"
             };
+            FilterDrop.SelectedItem = "District";
 
             try
             {
-                string request = APIRequest.Request("Leaderboard", new Dictionary<string, string>() {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
+                string request = APIRequest.Request("Leaderboard", true, new Dictionary<string, string>() {
                     {"filter", "district" }
                 });
 
@@ -57,8 +57,7 @@ namespace Volunteerio.Views
         {
             try
             {
-                string request = APIRequest.Request("Leaderboard", new Dictionary<string, string>() {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
+                string request = APIRequest.Request("Leaderboard", true, new Dictionary<string, string>() {
                     {"filter", FilterDrop.SelectedItem.ToString().ToLower() }
                 });
 

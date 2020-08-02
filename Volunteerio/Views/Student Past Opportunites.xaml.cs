@@ -26,9 +26,7 @@ namespace Volunteerio.Views
 
             try
             {
-                string Response = APIRequest.Request("PastOpps", new Dictionary<string, string>() {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() }
-                });
+                string Response = APIRequest.Request("PastOpps", true, new Dictionary<string, string>());
 
                 //Parse Data
                 Dictionary<string, List<Dictionary<string, string>>> Opps = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(Response);

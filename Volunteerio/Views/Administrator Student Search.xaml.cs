@@ -30,8 +30,7 @@ namespace Volunteerio.Views
         {
             try
             {
-                string response = APIRequest.Request("StudentsList", new Dictionary<string, string>() {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
+                string response = APIRequest.Request("StudentsList", true, new Dictionary<string, string>() {
                     {"Filter", FilterField.Text }
                 });
                 List<Dictionary<string, string>> students = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(response);

@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Newtonsoft.Json;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Microcharts;
 
 namespace Volunteerio.Views
 {
@@ -15,14 +16,44 @@ namespace Volunteerio.Views
 
             try
             {
-                string response = APIRequest.Request("hours", new Dictionary<string, string>()
-                {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() }
-                });
+                string response = APIRequest.Request("hours", true, new Dictionary<string, string>());
 
                 Dictionary<string, string> HoursDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
 
-                HoursText.Text = HoursDict["hours"];
+                //HoursText.Text = 
+                int Goal = int.Parse(HoursDict["goal"]);
+                int Current = int.Parse(HoursDict["hours"]);
+                int GoalP;
+                if (Goal - Current < 0)
+                {
+                    GoalP = 0;
+                }
+                else
+                {
+                    GoalP = Goal - Current;
+                }
+                List<ChartEntry> entries = new List<ChartEntry>
+                {
+                    new ChartEntry(GoalP)
+                    {
+                        Label = "Goal",
+                        ValueLabel = Goal.ToString(),
+                        Color = SkiaSharp.SKColor.FromHsv(69, 69, 69),
+                    },
+                    new ChartEntry(Current)
+                    {
+                        Label = "Current",
+                        ValueLabel = Current.ToString(),
+                        Color = SkiaSharp.SKColor.FromHsv(69, 69, 420)
+                    }
+                    
+                };
+                Chart.Chart = new PieChart()
+                {
+                    Entries = entries,
+                    LabelTextSize = 50,
+                    GraphPosition = GraphPosition.Center
+                };
             }
             catch
             {
@@ -32,14 +63,6 @@ namespace Volunteerio.Views
 
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            HoursImage.RotateTo(365, 1000);
-            HoursImage.Rotation = 0;
-        }
-
         private void AddHoursButton_Clicked(object sender, EventArgs e)
         {
             try
@@ -47,9 +70,8 @@ namespace Volunteerio.Views
                 if (HoursEntry.Text != "" && ReasonEntry.Text != "" && Int32.TryParse(HoursEntry.Text, out int HoursInt))
                 {
 
-                    APIRequest.Request("addhours", new Dictionary<string, string>()
+                    APIRequest.Request("addhours", true, new Dictionary<string, string>()
                     {
-                        {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                         {"hours", HoursEntry.Text },
                         {"reason", ReasonEntry.Text }
                     });
@@ -76,6 +98,11 @@ namespace Volunteerio.Views
         private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Views.Student_Menu());
+        }
+
+        private void MarketplaceButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Volunteerio.Views.Marketplace_Page());
         }
     }
 }

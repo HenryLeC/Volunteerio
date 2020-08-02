@@ -9,10 +9,17 @@
     <ContentPage.Content>
         <StackLayout>
             <local:HeaderControl Text="My Opportunity" HamburgerButtonClicked="HamburgerButton_Clicked"/>
-
-            <Label Text="Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 0, 0" x:Name="OppName"/>
-            <Label Text="Date: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 0, 0" x:Name="OppTime"/>
-            <Label Text="Location: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 0, 0" x:Name="OppLocation"/>
+            <ScrollView>
+                <StackLayout>
+                    <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,50, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppDate" Text="Date: " Margin="30, 20 , 0 , 0" FontSize="25"/>
+                    <Label x:Name="OppHours" Text="Hours: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppLocation" Text="Location: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppSponsor" Text="Sponsor: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppClass" Text="Classification: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppVols" Text="" Margin="30, 20, 0, 0" FontSize="25"/>
+                </StackLayout>
+            </ScrollView>
             <ListView RowHeight="70" x:Name="BookedStudentsListView" Margin="0, 5, 0 , 0" HeightRequest="200">
                 <ListView.ItemTemplate>
                     <DataTemplate>

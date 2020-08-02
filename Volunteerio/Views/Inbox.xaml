@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Volunteerio.Views.Administrator_Notifications"
+             x:Class="Volunteerio.Views.Inbox"
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Notifications" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Inbox" HamburgerButtonClicked="HamburgerButton_Clicked"/>
 
             <ListView x:Name="NotificationsListView" Margin="0, 25, 0 , 0" ItemSelected="NotificationsListView_ItemSelected">
                 <ListView.ItemTemplate>

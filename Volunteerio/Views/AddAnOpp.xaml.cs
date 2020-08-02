@@ -15,6 +15,7 @@ namespace Volunteerio.Views
         {
             InitializeComponent();
             OppDate.MinimumDate = DateTime.Now;
+            OppClass.ItemsSource = Classes.CLASSES;
         }
 
         private void AddOppButton_Clicked(object sender, EventArgs e)
@@ -24,20 +25,29 @@ namespace Volunteerio.Views
             string Hours = OppHours.Text;
             string Location = OppLocation.Text;
             DateTime Date = OppDate.Date.Add(OppTime.Time);
+            string Class = OppClass.SelectedItem as string;
+            bool MaxVolsB = int.TryParse(OppMaxVols.Text, out int MaxVols);
+
+            if (!MaxVolsB)
+            {
+                DisplayAlert("Error", "Enter a number for Maximum Volunteers", "Ok");
+                return;
+            }
 
             try
             {
 
                 Dictionary<string, string> Attributes = new Dictionary<string, string>()
                 {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                     {"Name", Name },
                     {"Date", Date.ToString("yyyy-MM-dd'T'HH:mm:sszzz", CultureInfo.InvariantCulture) },
                     {"Location", Location },
-                    {"Hours", Hours }
+                    {"Hours", Hours },
+                    {"Class", Class },
+                    {"MaxVols", MaxVols.ToString() }
                 };
 
-                string response = APIRequest.Request("AddOpp", Attributes);
+                string response = APIRequest.Request("AddOpp", true, Attributes);
                 
                 //Leave Page
                 if ((string)Xamarin.Forms.Application.Current.Properties["Role"] == "admin")

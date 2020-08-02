@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Volunteerio.Views.ConfirmParticipation"
+             xmlns:local="clr-namespace:Volunteerio">
+    <ContentPage.Content>
+        <StackLayout>
+            <local:HeaderControl Text="Confirm Participation" HamburgerButtonClicked="HeaderControl_HamburgerButtonClicked"/>
+
+            <Label Text="Opportunity: " FontSize="20" x:Name="OppName" Margin="30, 20, 0, 0"/>
+            <Label Text="Student: " FontSize="20" x:Name="StuName" Margin="30, 20, 0, 0"/>
+            <Label Text="Hours Completed: " FontSize="20" x:Name="HourComp" Margin="30, 20, 0, 0"/>
+            <Label Text="Opportunity Length: " FontSize="20" x:Name="HourTotal" Margin="30, 20, 0, 0"/>
+            <Frame CornerRadius="30" BorderColor="Black" Margin="0, 20, 0, 0">
+                <Entry Placeholder="Hours To Award Student (Blank For 0)" x:Name="HoursInput" />
+            </Frame>
+            <Button Text="Submit" x:Name="SubmitButton" Clicked="SubmitButton_Clicked" Margin="0, 20, 0, 0" CornerRadius="30"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

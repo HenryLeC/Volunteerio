@@ -9,26 +9,33 @@
     <ContentPage.Content>
         <StackLayout>
             <local:HeaderControl Text="Add An Opportunity" HamburgerButtonClicked="HamburgerButton_Clicked"/>
-
-            <Frame CornerRadius="40" BorderColor="Black" Margin="20, 30, 20, 10" HeightRequest="45">
-                <Entry x:Name="OppName" Placeholder="Name" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
-            </Frame>
-            <Frame CornerRadius="40" BorderColor="Black" Margin="20" HeightRequest="45">
-                <Entry x:Name="OppHours" Placeholder="Amont of Hours" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
-            </Frame>
-            <Frame CornerRadius="40" BorderColor="Black" Margin="20, 10" HeightRequest="45">
-                <Entry x:Name="OppLocation" Placeholder="Location" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
-            </Frame>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <DatePicker x:Name="OppDate" Grid.Column="0" FontSize="20" Margin="10, 0, 5, 0"/>
-                <TimePicker x:Name="OppTime" Grid.Column="1" FontSize="20" Margin="5, 0, 10, 0"/>
-            </Grid>
-            <Label HorizontalOptions="Center" x:Name="ErrorLabel"/>
-            <Button x:Name="AddOppButton" Clicked="AddOppButton_Clicked"  Margin="20" Text="Add Opportunity" FontSize="30" CornerRadius="30"/>
+            
+            <ScrollView>
+                <StackLayout>
+                    <Frame CornerRadius="40" BorderColor="Black" Margin="10, 10" HeightRequest="45">
+                        <Entry x:Name="OppName" Placeholder="Name" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+                    </Frame>
+                    <Frame CornerRadius="40" BorderColor="Black" Margin="10, 10" HeightRequest="45">
+                        <Entry x:Name="OppHours" Placeholder="Amont of Hours" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+                    </Frame>
+                    <Frame CornerRadius="40" BorderColor="Black" Margin="10, 10" HeightRequest="45">
+                        <Entry x:Name="OppLocation" Placeholder="Location" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+                    </Frame>
+                    <Frame CornerRadius="40" BorderColor="Black" Margin="10, 10" HeightRequest="45">
+                        <Entry x:Name="OppMaxVols" Placeholder="Maximum Volunteers" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+                    </Frame>
+                    <Picker x:Name="OppClass" Margin="10" FontSize="Medium" Title="Classification"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <DatePicker x:Name="OppDate" Grid.Column="0" FontSize="20" Margin="10, 0, 5, 0"/>
+                        <TimePicker x:Name="OppTime" Grid.Column="1" FontSize="20" Margin="5, 0, 10, 0"/>
+                    </Grid>
+                    <Button x:Name="AddOppButton" Clicked="AddOppButton_Clicked"  Margin="20" Text="Add Opportunity" FontSize="30" CornerRadius="30" BackgroundColor="{StaticResource MenuButtonBg}"/>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

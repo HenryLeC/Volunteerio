@@ -23,11 +23,6 @@ namespace Volunteerio.Views
             Navigation.PushAsync(new Views.Student_Dashboard());
         }
 
-        private void BookAnOppButton_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Views.Opportunities_Page());
-        }
-
         private void PastOppsButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Views.Student_Past_Opportunites());
@@ -66,9 +61,8 @@ namespace Volunteerio.Views
                     await Navigation.PopAsync();
                     try
                     {
-                        string APIResponse = APIRequest.Request("ClockInOut", new Dictionary<string, string>()
+                        string APIResponse = APIRequest.Request("ClockInOut", true, new Dictionary<string, string>()
                         {
-                            {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                             {"QrCode", result.Text }
                         });
 
@@ -97,6 +91,11 @@ namespace Volunteerio.Views
         void LeaderboardButton_Clicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new Views.Leaderboard());
+        }
+
+        private void MarketplaceButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.Marketplace_Page());
         }
     }
 }

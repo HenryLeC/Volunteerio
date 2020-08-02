@@ -22,15 +22,21 @@ namespace Volunteerio.Views
             OppLocation.Text += Opp["Location"];
             OppHours.Text += Opp["Hours"];
             OppSponsor.Text += Opp["Sponsor"];
+            OppClass.Text += Opp["Class"];
+            OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + "Volunteers";
+
+            if (Int32.Parse(Opp["CurrentVols"]) >= Int32.Parse(Opp["MaxVols"]))
+            {
+                BookOppButton.IsEnabled = false;
+            }
         }
 
         private void BookOppButton_Clicked(object sender, EventArgs e)
         {
             try
             {
-                string response = APIRequest.Request("BookAnOpp", new Dictionary<string, string>()
+                string response = APIRequest.Request("BookAnOpp", true, new Dictionary<string, string>()
                 {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                     {"OppId", POpp["ID"] }
                 });
 

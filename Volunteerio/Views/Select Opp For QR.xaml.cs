@@ -22,9 +22,7 @@ namespace Volunteerio.Views
 
             try
             {
-                string Response = APIRequest.Request("MyOpps", new Dictionary<string, string>() {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() }
-                });
+                string Response = APIRequest.Request("MyOpps", true, new Dictionary<string, string>());
 
                 //Parse Data
                 List<Dictionary<string, string>> Opps = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(Response);
@@ -42,9 +40,8 @@ namespace Volunteerio.Views
         {
             try
             {
-                string Code = APIRequest.Request("SignInStudents", new Dictionary<string, string>()
+                string Code = APIRequest.Request("SignInStudents", true, new Dictionary<string, string>()
                 {
-                    {"x-access-token", Xamarin.Forms.Application.Current.Properties["Token"].ToString() },
                     {"OppId", (e.SelectedItem as Dictionary<string, string>)["ID"] }
                 });
 
