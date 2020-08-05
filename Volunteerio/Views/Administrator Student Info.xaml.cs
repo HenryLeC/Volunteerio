@@ -29,7 +29,7 @@ namespace Volunteerio.Views
 
                 StudentName.Text += StudentInfo["Name"];
                 StudentId.Text += StudentInfo["StuId"];
-                Hours.Text += StudentInfo["Hours"];
+                Hours.Text += StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
 
                 PastOppsListView.ItemsSource = StudentHours["PastOpps"];
                 HoursListView.ItemsSource = StudentHours["Hours"];
@@ -87,6 +87,11 @@ namespace Volunteerio.Views
                 DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
             Navigation.PushAsync(new Views.Administrator_Student_Info(StudentInfo));
+        }
+
+        private void HoursListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PushAsync(new ShowHours(((Xamarin.Forms.ListView)sender).SelectedItem as Dictionary<string, string>, StudentInfo));
         }
     }
 

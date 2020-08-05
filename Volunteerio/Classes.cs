@@ -9,7 +9,10 @@ namespace Volunteerio
         public static List<string> CLASSES = new List<string>()
         {
             "Animals",
-            "Environment"
+            "Environment",
+            "Civic",
+            "Humanitarian",
+            "School"
         };
     }
 }

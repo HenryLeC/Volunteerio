@@ -6,15 +6,19 @@
     <ContentPage.Content>
         <StackLayout>
             <local:HeaderControl Text="Opportunity Info" HamburgerButtonClicked="HamburgerButton_Clicked"/>
-
-            <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,50, 0, 0" FontSize="25"/>
-            <Label x:Name="OppDate" Text="Date: " Margin="30, 20 , 0 , 0" FontSize="25"/>
-            <Label x:Name="OppHours" Text="Hours: " Margin="30, 20, 0, 0" FontSize="25"/>
-            <Label x:Name="OppLocation" Text="Location: " Margin="30, 20, 0, 0" FontSize="25"/>
-            <Label x:Name="OppSponsor" Text="Sponsor: " Margin="30, 20, 0, 0" FontSize="25"/>
-            <Label x:Name="OppClass" Text="Classification: " Margin="30, 20, 0, 0" FontSize="25"/>
-            <Label x:Name="OppVols" Text="" Margin="30, 20, 0, 0" FontSize="25"/>
-            <Button x:Name="BookOppButton" CornerRadius="30"  Text="Book Opportunity" Margin="30, 30, 30, 0" Clicked="BookOppButton_Clicked"/>
+            <ScrollView>
+                <StackLayout>
+                    <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppDate" Text="Date: " Margin="30, 20 , 0 , 0" FontSize="25"/>
+                    <Label x:Name="OppHours" Text="Hours: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppLocation" Text="Location: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppDesc" Text="Loading ..." Margin="30, 20, 0, 0"/>
+                    <Label x:Name="OppSponsor" Text="Sponsor: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppClass" Text="Classification: " Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Label x:Name="OppVols" Text="" Margin="30, 20, 0, 0" FontSize="25"/>
+                    <Button x:Name="BookOppButton" CornerRadius="30"  Text="Book Opportunity" Margin="30, 30, 30, 0" Clicked="BookOppButton_Clicked"/>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

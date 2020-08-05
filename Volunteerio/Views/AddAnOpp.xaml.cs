@@ -44,6 +44,7 @@ namespace Volunteerio.Views
                     {"Location", Location },
                     {"Hours", Hours },
                     {"Class", Class },
+                    {"Description", DescriptionEditor.Text },
                     {"MaxVols", MaxVols.ToString() }
                 };
 

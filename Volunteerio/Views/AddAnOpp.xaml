@@ -24,6 +24,7 @@
                     <Frame CornerRadius="40" BorderColor="Black" Margin="10, 10" HeightRequest="45">
                         <Entry x:Name="OppMaxVols" Placeholder="Maximum Volunteers" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
                     </Frame>
+                    <Editor x:Name="DescriptionEditor" Placeholder="Description" Margin="10, 10" HeightRequest="100" MaxLength="500"/>
                     <Picker x:Name="OppClass" Margin="10" FontSize="Medium" Title="Classification"/>
                     <Grid>
                         <Grid.ColumnDefinitions>

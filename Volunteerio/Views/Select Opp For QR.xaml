@@ -11,12 +11,12 @@
             <local:HeaderControl Text="Select An Opportunity" HamburgerButtonClicked="HamburgerButton_Clicked"/>
 
             <Label Text="" x:Name="ErrorMesage" Margin="0, 20, 0, 0"/>
-            <ListView x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
+            <ListView x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected" RowHeight="40">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding Path=[Name]}" FontSize="20"/>
+                                <Label Text="{Binding Path=[Name]}" FontSize="30"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

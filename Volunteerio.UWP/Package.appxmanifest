@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Volunteerio.UWP</DisplayName>
+    <DisplayName>Volunteerio</DisplayName>
     <PublisherDisplayName>9a0e073a-db42-4c75-8474-1914a01f8982</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

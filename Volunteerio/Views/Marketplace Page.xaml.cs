@@ -33,7 +33,14 @@ namespace Volunteerio.Views
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.Student_Menu());
+            if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "student")
+            {
+                Navigation.PushAsync(new Views.Student_Menu());
+            }
+            else if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
+            {
+                Navigation.PushAsync(new Views.Administrator_Menu());
+            }
         }
 
         private void NameFilter_TextChanged(object sender, TextChangedEventArgs e)

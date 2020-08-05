@@ -10,7 +10,7 @@ namespace Volunteerio
     {
 
         //public static string server = "http://10.30.20.228/";
-        //public static string server = "http://192.168.86.33/";
+        //public static string server = "http://192.168.0.6/";
         public static string server = "https://api.volunteerio.us/";
 
         public static string Request(string Route, bool Token, Dictionary<string, string> Parameters)

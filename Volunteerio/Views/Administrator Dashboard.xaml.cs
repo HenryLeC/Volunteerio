@@ -25,7 +25,13 @@ namespace Volunteerio.Views
                 //Parse Data
                 List<Dictionary<string, string>> Opps = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(Response);
 
+                string Response2 = APIRequest.Request("UnconfOpps", true, new Dictionary<string, string>());
+
+                //Parse Data
+                List<Dictionary<string, string>> UnconfOpps = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(Response2);
+
                 OppsListView.ItemsSource = Opps;
+                UnConfOppsListView.ItemsSource = UnconfOpps;
             }
             catch
             {
@@ -44,6 +50,11 @@ namespace Volunteerio.Views
         private void OppsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushAsync(new Views.My_Opportunity_Info(e.SelectedItem as Dictionary<string, string>));
+        }
+
+        private void UnConfOppsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PushAsync(new Views.Confirm_Opportunity(e.SelectedItem as Dictionary<string, string>));
         }
     }
 }

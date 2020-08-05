@@ -33,30 +33,19 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Label Text="Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
-            <ListView RowHeight="70" x:Name="HoursListView" Margin="0, 5, 0 , 0" HeightRequest="200">
+            <Label Text="Manually Added Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
+            <ListView RowHeight="70" x:Name="HoursListView" Margin="0, 5, 0 , 0" HeightRequest="200" ItemSelected="HoursListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout Orientation="Vertical" Grid.Column="0">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Path=[Reason]}" FontSize="15"/>
-                                        <Label Text=" | " FontSize="15"/>
-                                        <Label Text="{Binding Path=[Confirmed]}" FontSize="15"/>
-                                    </StackLayout>
-                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+                            <StackLayout Orientation="Vertical" Grid.Column="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
+                                    <Label Text=" | " FontSize="20"/>
+                                    <Label Text="{Binding Path=[Confirmed]}" FontSize="20"/>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal" Grid.Column="2">
-                                    <Button WidthRequest="80" x:Name="DeleteButton" BackgroundColor="Red" TextColor="Black" FontSize="15" Text="Delete" Clicked="DeleteButton_Clicked" IsVisible="{Binding Path=[Unconfirmed], Converter={StaticResource stringToBool}}" CommandParameter="{Binding}"/>
-                                    <Button WidthRequest="80" x:Name="ConfirmButton" BackgroundColor="Green" TextColor="Black" FontSize="13" Text="Confirm" Clicked="ConfirmButton_Clicked" IsVisible="{Binding Path=[Unconfirmed], Converter={StaticResource stringToBool}}" CommandParameter="{Binding}"/>
-                                </StackLayout>
-                            </Grid>
+                                <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

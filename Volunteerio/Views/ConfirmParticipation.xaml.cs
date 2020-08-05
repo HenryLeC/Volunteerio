@@ -23,7 +23,7 @@ namespace Volunteerio.Views
 
             OppName.Text += data["OppName"];
             StuName.Text += data["Student"];
-            HourComp.Text += data["StuHours"];
+            HourComp.Text += data["StuCompleted"];
             HourTotal.Text += data["OppHours"];
         }
 

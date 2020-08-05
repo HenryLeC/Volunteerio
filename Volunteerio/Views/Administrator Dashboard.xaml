@@ -7,21 +7,45 @@
              x:Class="Volunteerio.Views.Administrator_Dashboard"
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
-        <StackLayout>
-            <local:HeaderControl Text="Your Dashboard" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Grid.Row="0" Height="auto"/>
+                <RowDefinition Grid.Row="1" Height="*"/>
+                <RowDefinition Grid.Row="2" Height="*"/>
+            </Grid.RowDefinitions>
+            <local:HeaderControl Text="Your Dashboard" HamburgerButtonClicked="HamburgerButton_Clicked" Grid.Row="0"/>
 
-            <ListView RowHeight="80" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Path=[Name]}" FontSize="30"/>
-                                <Label Text="{Binding Path=[Time]}" FontSize="20"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+            <StackLayout Grid.Row="1">
+                <Label Text="Your Opportunities" FontSize="20" HorizontalOptions="Center"/>
+                <ListView RowHeight="80" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Path=[Name]}" FontSize="30"/>
+                                    <Label Text="{Binding Path=[Time]}" FontSize="20"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <Label Text="Unconfirmed Opportunities" FontSize="20" HorizontalOptions="Center"/>
+                <ListView RowHeight="80" x:Name="UnConfOppsListView" Margin="0, 5, 0 , 0" ItemSelected="UnConfOppsListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Path=[Name]}" FontSize="30"/>
+                                    <Label Text="{Binding Path=[Time]}" FontSize="20"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

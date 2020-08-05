@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Newtonsoft.Json;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using RestSharp.Extensions;
 
 namespace Volunteerio.Views
 {
@@ -19,15 +20,37 @@ namespace Volunteerio.Views
 
             OppName.Text += Opp["Name"];
             OppDate.Text += Opp["Time"];
-            OppLocation.Text += Opp["Location"];
             OppHours.Text += Opp["Hours"];
             OppSponsor.Text += Opp["Sponsor"];
             OppClass.Text += Opp["Class"];
-            OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + "Volunteers";
+            OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + " Volunteers";
 
             if (Int32.Parse(Opp["CurrentVols"]) >= Int32.Parse(Opp["MaxVols"]))
             {
                 BookOppButton.IsEnabled = false;
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            try
+            {
+                string response = APIRequest.Request("OppInfo", true, new Dictionary<string, string>
+                {
+                    {"ID", POpp["ID"] }
+                });
+
+                Dictionary<string, string> OppInfo = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+
+                OppLocation.Text += OppInfo["Location"];
+                OppDesc.Text = OppInfo["Description"];
+
+            }
+            catch
+            {
+                DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
         }
 
@@ -54,7 +77,14 @@ namespace Volunteerio.Views
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Views.Student_Menu());
+            if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "student")
+            {
+                Navigation.PushAsync(new Views.Student_Menu());
+            }
+            else if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
+            {
+                Navigation.PushAsync(new Views.Administrator_Menu());
+            }
         }
     }
 }

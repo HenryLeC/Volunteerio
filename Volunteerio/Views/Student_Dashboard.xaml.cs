@@ -65,34 +65,7 @@ namespace Volunteerio.Views
 
         private void AddHoursButton_Clicked(object sender, EventArgs e)
         {
-            try
-            {
-                if (HoursEntry.Text != "" && ReasonEntry.Text != "" && Int32.TryParse(HoursEntry.Text, out int HoursInt))
-                {
-
-                    APIRequest.Request("addhours", true, new Dictionary<string, string>()
-                    {
-                        {"hours", HoursEntry.Text },
-                        {"reason", ReasonEntry.Text }
-                    });
-
-                    HoursEntry.Text = "";
-                    ReasonEntry.Text = "";
-
-                    DisplayAlert("Hours Added", "Your Hours Have Been Added, Please Wait For Them To Be Confirmed", "Ok");
-                }
-                else
-                {
-                    DisplayAlert("Invalid", "Please Enter a Number For Hours And Text For Reason", "Ok");
-                }
-
-            }
-            catch (ServerErrorException)
-            {
-
-                DisplayAlert("Server Error", "Please Try Agin Later", "OK");
-            }
-
+            Navigation.PushAsync(new Views.AddHours());
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)

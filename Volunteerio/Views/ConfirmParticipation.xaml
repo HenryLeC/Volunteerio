@@ -12,7 +12,7 @@
 
             <Label Text="Opportunity: " FontSize="20" x:Name="OppName" Margin="30, 20, 0, 0"/>
             <Label Text="Student: " FontSize="20" x:Name="StuName" Margin="30, 20, 0, 0"/>
-            <Label Text="Hours Completed: " FontSize="20" x:Name="HourComp" Margin="30, 20, 0, 0"/>
+            <Label Text="Time Completed: " FontSize="20" x:Name="HourComp" Margin="30, 20, 0, 0"/>
             <Label Text="Opportunity Length: " FontSize="20" x:Name="HourTotal" Margin="30, 20, 0, 0"/>
             <Frame CornerRadius="30" BorderColor="Black" Margin="0, 20, 0, 0">
                 <Entry Placeholder="Hours To Award Student (Blank For 0)" x:Name="HoursInput" />

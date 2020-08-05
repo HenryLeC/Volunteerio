@@ -63,5 +63,10 @@ namespace Volunteerio.Views
         {
             Navigation.PushAsync(new Views.Inbox());
         }
+
+        private void MarketplaceButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.Marketplace_Page());
+        }
     }
 }

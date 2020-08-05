@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Volunteerio.Views.AddHours"
+             xmlns:local="clr-namespace:Volunteerio">
+    <ContentPage.Content>
+        <StackLayout>
+            <local:HeaderControl Text="Add Hours" HamburgerButtonClicked="HeaderControl_HamburgerButtonClicked"/>
+
+            <Frame Margin="20, 20, 20, 0" CornerRadius="30" BorderColor="LightGray">
+                <Entry x:Name="HoursEntry" Placeholder="Hours" FontSize="20"/>
+            </Frame>
+            <Frame Margin="20, 20, 20, 0" CornerRadius="30" BorderColor="LightGray">
+                <Entry x:Name="ReasonEntry" Placeholder="Reason" FontSize="20"/>
+            </Frame>
+            <Editor x:Name="DescEditor" Placeholder="Description" FontSize="15" HeightRequest="100" MaxLength="500" Margin="20, 20, 20, 0"/>
+            <Button x:Name="AddHoursBtn" BackgroundColor="{StaticResource MenuButtonBg}" Text="Add Hours" Clicked="AddHours_Clicked" Margin="20, 20, 20, 0" CornerRadius="30" BorderColor="{StaticResource MenuBtnBorderC}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
