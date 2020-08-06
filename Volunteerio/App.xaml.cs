@@ -18,9 +18,20 @@ namespace Volunteerio
 
         protected override void OnStart()
         {
+            string documentsPath;
+            switch (Device.RuntimePlatform)
+            {
+                case Device.UWP:
+                    documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData); //AppData Folder
+                    break;
+                default:
+                    documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+                    break;
+            }
+            Xamarin.Forms.Application.Current.Properties["docsPath"] = documentsPath;
+
             // Login
             string fileName = "data.json";
-            string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
 
             Console.WriteLine(path);
