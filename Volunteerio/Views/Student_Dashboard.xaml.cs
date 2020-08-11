@@ -38,13 +38,13 @@ namespace Volunteerio.Views
                     {
                         Label = "Goal",
                         ValueLabel = Goal.ToString(),
-                        Color = SkiaSharp.SKColor.FromHsv(69, 69, 69),
+                        Color = SkiaSharp.SKColor.FromHsv(240, 100, 50),
                     },
                     new ChartEntry(Current)
                     {
                         Label = "Current",
                         ValueLabel = Current.ToString(),
-                        Color = SkiaSharp.SKColor.FromHsv(69, 69, 420)
+                        Color = SkiaSharp.SKColor.FromHsv(196, 54, 100)
                     }
                     
                 };

@@ -61,7 +61,6 @@ namespace Volunteerio.Views
             {
                 DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
-            Navigation.PopToRootAsync(false);
             Navigation.PushAsync(new Views.Administrator_Student_Info(StudentInfo));
         }
 

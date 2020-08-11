@@ -10,7 +10,7 @@
 
             <forms:ChartView x:Name="Chart" HeightRequest="255" Margin="0"/>
 
-            <Button x:Name="MarketplaceButton" Clicked="MarketplaceButton_Clicked" Text="Marketplace" CornerRadius="30" Margin="20, 0" BackgroundColor="{StaticResource MenuButtonBg}"/>
+            <Button x:Name="MarketplaceButton" Clicked="MarketplaceButton_Clicked" Text="Marketplace" CornerRadius="30" Margin="20, 0" BackgroundColor="{StaticResource MenuButtonBg}"  BorderColor="{StaticResource MenuBtnBorderC}"/>
             <Button x:Name="AddHoursButton" Clicked="AddHoursButton_Clicked" CornerRadius="30" Text="Add Hours" Margin="20, 10" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}"/>
         </StackLayout>
     </ContentPage.Content>
