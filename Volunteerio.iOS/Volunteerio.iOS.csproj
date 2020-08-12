@@ -64,10 +64,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Distribution: Granville Le Compte (VQ82S44J68)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>true</BuildIpa>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignProvision>Dep Prof</CodesignProvision>
+    <OptimizePNGs>true</OptimizePNGs>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchSdkVersion>
+    </MtouchSdkVersion>
+    <MtouchFastDev>false</MtouchFastDev>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
