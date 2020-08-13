@@ -62,22 +62,29 @@ namespace Volunteerio.Views
 
         private async void DeleteButton_Clicked(object sender, EventArgs e)
         {
-            bool delete = await DisplayAlert("Delete Opportunity", "Are you sure you would like to delete this opportuniy?", "Delete", "Cancel");
-            if (delete)
+            try
             {
-                string response = APIRequest.Request("DeleteOpp", true,new Dictionary<string, string>
+                bool delete = await DisplayAlert("Delete Opportunity", "Are you sure you would like to delete this opportuniy?", "Delete", "Cancel");
+                if (delete)
                 {
-                    { "OppId", Opp["ID"] },
-                });
+                    string response = APIRequest.Request("DeleteOpp", true,new Dictionary<string, string>
+                    {
+                        { "OppId", Opp["ID"] },
+                    });
 
-                if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "community")
-                {
-                    await Navigation.PushAsync(new Views.Community_Member_Menu());
+                    if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "community")
+                    {
+                        await Navigation.PushAsync(new Views.Community_Member_Menu());
+                    }
+                    else if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
+                    {
+                        await Navigation.PushAsync(new Views.Administrator_Menu());
+                    }
                 }
-                else if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
-                {
-                    await Navigation.PushAsync(new Views.Administrator_Menu());
-                }
+            }
+            catch
+            {
+                await DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
         }
     }
