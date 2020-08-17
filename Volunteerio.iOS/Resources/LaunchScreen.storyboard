@@ -17,11 +17,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="250" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Voluteerio">
-                                <rect key="frame" x="10" y="345" width="394" height="207"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="482" translatesAutoresizingMaskIntoConstraints="NO" image="Volunteerio">
+                                <rect key="frame" x="20" y="268.5" width="374" height="359"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
+                                <accessibility key="accessibilityConfiguration" label="Volunteerio">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint id="970" firstItem="482" firstAttribute="leading" secondItem="247" secondAttribute="leadingMargin"/>
+                            <constraint id="971" firstAttribute="trailingMargin" secondItem="482" secondAttribute="trailing"/>
+                            <constraint id="972" firstItem="482" firstAttribute="top" secondItem="243" secondAttribute="bottom" constant="248.5"/>
+                            <constraint id="974" firstItem="244" firstAttribute="top" secondItem="482" secondAttribute="bottom" constant="268.5"/>
+                        </constraints>
                     </view>
+                    <connections/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="248" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,6 +41,6 @@
     </scenes>
     <color key="tintColor" colorSpace="calibratedRGB" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1"/>
     <resources>
-        <image name="Voluteerio" width="724" height="116"/>
+        <image name="Volunteerio" width="1000.5" height="236.5"/>
     </resources>
 </document>
