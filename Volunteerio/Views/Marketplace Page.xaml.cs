@@ -28,7 +28,7 @@ namespace Volunteerio.Views
 
         private void OppsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Navigation.PushAsync(new Opportunity(e.SelectedItem as Dictionary<string, string>));
+            Navigation.PushAsync(new Opportunity(e.SelectedItem as Dictionary<string, string>, true));
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
