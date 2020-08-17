@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Newtonsoft.Json;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using RestSharp.Extensions;
 
 namespace Volunteerio.Views
@@ -12,7 +10,7 @@ namespace Volunteerio.Views
     {
         readonly Dictionary<string, string> POpp = new Dictionary<string, string>();
 
-        public Opportunity(Dictionary<string, string> Opp)
+        public Opportunity(Dictionary<string, string> Opp, bool Bookable)
         {
             InitializeComponent();
 
@@ -25,7 +23,7 @@ namespace Volunteerio.Views
             OppClass.Text += Opp["Class"];
             OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + " Volunteers";
 
-            if (Int32.Parse(Opp["CurrentVols"]) >= Int32.Parse(Opp["MaxVols"]))
+            if (int.Parse(Opp["CurrentVols"]) >= int.Parse(Opp["MaxVols"]) || (string)Application.Current.Properties["Role"] == "admin" || Bookable == false)
             {
                 BookOppButton.IsEnabled = false;
             }

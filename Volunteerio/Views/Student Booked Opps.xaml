@@ -10,7 +10,7 @@
         <StackLayout>
             <local:HeaderControl Text="Your Booked Opps" HamburgerButtonClicked="HamburgerButton_Clicked"/>
 
-            <ListView RowHeight="60" x:Name="OppsListView" Margin="0, 5, 0 , 0">
+            <ListView RowHeight="60" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

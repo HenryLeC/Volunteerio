@@ -40,5 +40,10 @@ namespace Volunteerio.Views
         {
             Navigation.PushAsync(new Views.Student_Menu());
         }
+
+        private void OppsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PushAsync(new Opportunity(e.SelectedItem as Dictionary<string, string>, false));
+        }
     }
 }
