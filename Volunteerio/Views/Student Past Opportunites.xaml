@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Your Past Opportunities" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Your Past Opportunities"/>
 
             <Grid Margin="0, 25, 0, 0">
                 <Grid.ColumnDefinitions>

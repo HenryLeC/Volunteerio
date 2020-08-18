@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Confirm Opportunity" HamburgerButtonClicked="HeaderControl_HamburgerButtonClicked"/>
+            <local:HeaderControl Text="Confirm Opportunity"/>
 
             <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,30, 0, 0" FontSize="25"/>
             <Label x:Name="OppDate" Text="Date: " Margin="30, 20 , 0 , 0" FontSize="25"/>

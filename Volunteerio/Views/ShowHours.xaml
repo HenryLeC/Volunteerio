@@ -13,7 +13,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Manually Added Hours" HamburgerButtonClicked="HeaderControl_HamburgerButtonClicked"/>
+            <local:HeaderControl Text="Manually Added Hours"/>
 
             <Label x:Name="StuNameL" Margin="30, 20, 0, 0" Text="Student Name: " FontSize="20"/>
             <Label x:Name="HourReason" Margin="30, 20, 0, 0" Text="Reason: " FontSize="20"/>

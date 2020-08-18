@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Leaderboard" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Leaderboard"/>
             <Picker x:Name="FilterDrop" WidthRequest="130" Margin="0, 20, 0, 0" HorizontalOptions="End" SelectedIndexChanged="FilterDrop_SelectedIndexChanged"/>
 
             <ListView x:Name="leaderboardListView">

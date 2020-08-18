@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Select An Opportunity" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Select An Opportunity"/>
 
             <Label Text="" x:Name="ErrorMesage" Margin="0, 20, 0, 0"/>
             <ListView x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected" RowHeight="40">

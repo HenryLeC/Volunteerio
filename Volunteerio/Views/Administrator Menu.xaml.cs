@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace Volunteerio.Views
@@ -13,6 +11,16 @@ namespace Volunteerio.Views
         public Administrator_Menu()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (Application.Current.Properties["Role"] as string == "teacher")
+            {
+                SchoolSettingsButton.IsVisible = false;
+            }
         }
 
         private void DashButton_Clicked(object sender, EventArgs e)
@@ -67,6 +75,11 @@ namespace Volunteerio.Views
         private void MarketplaceButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Views.Marketplace_Page());
+        }
+
+        private void SchoolSettingsButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.School_Settings());
         }
     }
 }

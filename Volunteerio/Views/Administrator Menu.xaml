@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Admin Menu" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Admin Menu"/>
 
             <ScrollView>
                 <StackLayout>
@@ -19,6 +19,7 @@
                     <Button x:Name="SignInStudentsButton" Clicked="SignInStudentsButton_Clicked" Text="Sign in Students" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}" BorderWidth="1" TextColor="{StaticResource MenuBtnTextC}"/>
                     <Button x:Name="InboxButton" Clicked="InboxButton_Clicked"  Text="Inbox" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}" BorderWidth="1" TextColor="{StaticResource MenuBtnTextC}"/>
                     <Button x:Name="LeaderboardButton" Clicked="LeaderboardButton_Clicked" Text="Leaderboard" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}" BorderWidth="1" TextColor="{StaticResource MenuBtnTextC}"/>
+                    <Button x:Name="SchoolSettingsButton" Clicked="SchoolSettingsButton_Clicked" Text="School Settings" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}" BorderWidth="1" TextColor="{StaticResource MenuBtnTextC}"/>
                     <Button x:Name="SignOutButton" Clicked="SignOutButton_Clicked" Text="Sign Out" Margin="20, 10" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}" BorderWidth="1" TextColor="{StaticResource MenuBtnTextC}"/>
                 </StackLayout>
             </ScrollView>

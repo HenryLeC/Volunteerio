@@ -35,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\School Settings.xaml.cs">
+      <DependentUpon>School Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Inbox.xaml.cs">
       <DependentUpon>Inbox.xaml</DependentUpon>
     </Compile>
@@ -63,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ConfirmParticipation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\School Settings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Inbox.xaml">

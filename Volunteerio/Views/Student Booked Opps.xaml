@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Your Booked Opps" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Your Booked Opps"/>
 
             <ListView RowHeight="60" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
                 <ListView.ItemTemplate>
