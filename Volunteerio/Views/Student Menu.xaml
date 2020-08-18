@@ -8,7 +8,7 @@
              x:Class="Volunteerio.Views.Student_Menu">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Student Menu" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Student Menu"/>
             <ScrollView>
                 <Grid>
                     <Grid.RowDefinitions>

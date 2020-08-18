@@ -13,7 +13,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Student Info" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Student Info"/>
 
             <Label Text="Student Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 04, 40" x:Name="StudentName"/>
             <Label Text="Student ID: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40,-40, 40, 1" x:Name="StudentId"/>

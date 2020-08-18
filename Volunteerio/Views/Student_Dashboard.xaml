@@ -6,7 +6,7 @@
              xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Your Dashboard" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Your Dashboard"/>
 
             <forms:ChartView x:Name="Chart" HeightRequest="255" Margin="0"/>
 

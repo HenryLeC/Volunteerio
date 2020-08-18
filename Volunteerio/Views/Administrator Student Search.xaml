@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Your Students" HamburgerButtonClicked="HamburgerButton_Clicked"/>
+            <local:HeaderControl Text="Your Students"/>
 
             <Frame CornerRadius="30" BorderColor="Black" Margin="20, 50" HeightRequest="45">
                 <Entry x:Name="FilterField" Placeholder="Student Name or Id" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>

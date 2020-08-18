@@ -13,7 +13,7 @@
                 <RowDefinition Grid.Row="1" Height="*"/>
                 <RowDefinition Grid.Row="2" Height="*"/>
             </Grid.RowDefinitions>
-            <local:HeaderControl Text="Your Dashboard" HamburgerButtonClicked="HamburgerButton_Clicked" Grid.Row="0"/>
+            <local:HeaderControl Text="Your Dashboard" Grid.Row="0"/>
 
             <StackLayout Grid.Row="1">
                 <Label Text="Your Opportunities" FontSize="20" HorizontalOptions="Center"/>
