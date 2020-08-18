@@ -1,0 +1,31 @@
+{
+  "images": [
+    {
+      "appearances": [],
+      "scale": "2x",
+      "idiom": "iphone",
+      "filename": "Volunteerio2000.png"
+    },
+    {
+      "appearances": [],
+      "scale": "3x",
+      "idiom": "iphone",
+      "filename": "Volunteerio3000.png"
+    },
+    {
+      "appearances": [],
+      "idiom": "iphone"
+    },
+    {
+      "appearances": [],
+      "scale": "1x",
+      "idiom": "iphone",
+      "filename": "Volunteerio1000.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}

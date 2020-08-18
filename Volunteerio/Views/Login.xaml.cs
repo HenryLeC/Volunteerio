@@ -16,10 +16,7 @@ namespace Volunteerio.Views
         {
             InitializeComponent();
 
-            On<iOS>().SetUseSafeArea(false);
-            Thickness Insets = On<iOS>().SafeAreaInsets();
-            InsertsRow.Height = Insets.Top;
-            string fileName = "topInsert.txt";
+            // Setup DocsPath for rest of app
             string documentsPath;
             switch (Device.RuntimePlatform)
             {
@@ -31,10 +28,6 @@ namespace Volunteerio.Views
                     break;
             }
             Xamarin.Forms.Application.Current.Properties["docsPath"] = documentsPath;
-            Console.WriteLine(documentsPath);
-            string path = Path.Combine(documentsPath, fileName);
-
-            File.WriteAllText(path, Insets.Top.ToString());
         }
 
         private void LogInButton_Clicked(object sender, EventArgs e)

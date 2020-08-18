@@ -79,13 +79,13 @@
       "scale": "3x",
       "size": "40x40",
       "idiom": "iphone",
-      "filename": "120.png"
+      "filename": "1201.png"
     },
     {
       "scale": "2x",
       "size": "60x60",
       "idiom": "iphone",
-      "filename": "1201.png"
+      "filename": "120.png"
     },
     {
       "scale": "3x",
@@ -97,7 +97,7 @@
       "scale": "1x",
       "size": "1024x1024",
       "idiom": "ios-marketing",
-      "filename": "1024NewIcon.png"
+      "filename": "1024.png"
     }
   ],
   "properties": {},
