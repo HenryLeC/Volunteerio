@@ -15,9 +15,6 @@ namespace Volunteerio
     {
         public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(Grid));
 
-        public delegate void HamburgerButtonHandler(object source, EventArgs e);
-        public event HamburgerButtonHandler HamburgerButtonClicked;
-
         public string Text
         {
             get

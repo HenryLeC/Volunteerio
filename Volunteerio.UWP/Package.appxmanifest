@@ -9,7 +9,7 @@
   <Identity
     Name="59152Volunteerio.Volunteerio"
     Publisher="CN=FCFAA27C-C0CD-48B3-A904-1DA10C7A0016"
-    Version="1.0.5.0" />
+    Version="1.0.6.0" />
 
   <mp:PhoneIdentity PhoneProductId="c5aadc8f-3c45-43e1-b822-675ea7ce2327" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

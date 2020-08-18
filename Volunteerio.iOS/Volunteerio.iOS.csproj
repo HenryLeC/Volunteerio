@@ -34,7 +34,7 @@
     <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>Full</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
@@ -68,12 +68,16 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>true</BuildIpa>
     <MtouchLink>SdkOnly</MtouchLink>
-    <CodesignProvision>Dep Prof</CodesignProvision>
+    <CodesignProvision>App Store Wildcard Prof</CodesignProvision>
     <OptimizePNGs>true</OptimizePNGs>
     <MtouchFloat32>true</MtouchFloat32>
     <MtouchSdkVersion>
     </MtouchSdkVersion>
     <MtouchFastDev>false</MtouchFastDev>
+    <MtouchUseLlvm>false</MtouchUseLlvm>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <MtouchExtraArgs>
+    </MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
