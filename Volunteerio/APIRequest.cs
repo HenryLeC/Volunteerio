@@ -24,7 +24,7 @@ namespace Volunteerio
                 {
                     Timeout = 5000
                 };
-                var request = new RestRequest(Method.POST)
+                RestRequest request = new RestRequest(Method.POST)
                 {
                     AlwaysMultipartFormData = true
                 };

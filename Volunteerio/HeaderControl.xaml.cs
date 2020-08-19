@@ -34,8 +34,14 @@ namespace Volunteerio
             string fileName = "topInsert.txt";
             string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
             string path = Path.Combine(documentsPath, fileName);
-
-            InsertsRow.Height = Double.Parse(File.ReadAllText(path));
+            if (File.Exists(path))
+            {
+                InsertsRow.Height = Double.Parse(File.ReadAllText(path));
+            }
+            else
+            {
+                InsertsRow.Height = 0;
+            }
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
