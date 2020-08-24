@@ -65,21 +65,21 @@ namespace Volunteerio.Views
                     Navigation.PushAsync(new Views.Student_Menu());
                     Xamarin.Forms.Application.Current.Properties["Token"] = ResponseDict["key"];
                     Xamarin.Forms.Application.Current.Properties["Role"] = role;
-                    Xamarin.Forms.Application.Current.MainPage = new Xamarin.Forms.NavigationPage(new Views.Student_Menu());
+                    Xamarin.Forms.Application.Current.MainPage = new Views.Student_Menu();
                 }
                 else if (role == "community")
                 {
                     Navigation.PushAsync(new Views.Community_Member_Menu());
                     Xamarin.Forms.Application.Current.Properties["Token"] = ResponseDict["key"];
                     Xamarin.Forms.Application.Current.Properties["Role"] = role;
-                    Xamarin.Forms.Application.Current.MainPage = new Xamarin.Forms.NavigationPage(new Views.Community_Member_Menu());
+                    Xamarin.Forms.Application.Current.MainPage = new Views.Community_Member_Menu();
                 }
                 else if (role == "admin" || role == "teacher")
                 {
                     Navigation.PushAsync(new Views.Administrator_Menu());
                     Xamarin.Forms.Application.Current.Properties["Token"] = ResponseDict["key"];
                     Xamarin.Forms.Application.Current.Properties["Role"] = role;
-                    Xamarin.Forms.Application.Current.MainPage = new Xamarin.Forms.NavigationPage(new Views.Administrator_Menu());
+                    Xamarin.Forms.Application.Current.MainPage = new Views.Administrator_Menu();
                 }
                 else
                 {
