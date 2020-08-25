@@ -1,7 +1,7 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Net;
-using RestSharp;
 using Xamarin.Forms;
 
 namespace Volunteerio

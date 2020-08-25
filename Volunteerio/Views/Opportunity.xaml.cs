@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using Newtonsoft.Json;
-using RestSharp.Extensions;
 
 namespace Volunteerio.Views
 {

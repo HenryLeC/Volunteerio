@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using System.IO;
+using Xamarin.Forms.Xaml;
 
 namespace Volunteerio.Views
 {
@@ -37,7 +37,7 @@ namespace Volunteerio.Views
 
             try
             {
-                 string Response = APIRequest.Request("login", false, new Dictionary<string, string>() {
+                string Response = APIRequest.Request("login", false, new Dictionary<string, string>() {
                     {"username", Uname },
                     {"password", Pass }
                 });
@@ -86,7 +86,7 @@ namespace Volunteerio.Views
                     FailedIndicator.Text = "Login Failed";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 if (ex == null)
                 {
@@ -100,9 +100,9 @@ namespace Volunteerio.Views
                 {
                     DisplayAlert("Server Error", "Please Try Agin Later", "OK");
                 }
-                
+
             }
-            
+
         }
 
         protected override void OnPropertyChanged(string propertyName)
