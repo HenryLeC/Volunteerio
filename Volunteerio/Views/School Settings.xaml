@@ -9,6 +9,8 @@
                 <RowDefinition Height="auto" Grid.Row="0"/>
                 <RowDefinition Height="auto" Grid.Row="1"/>
                 <RowDefinition Height="auto" Grid.Row="2"/>
+                <RowDefinition Height="auto" Grid.Row="3"/>
+                <RowDefinition Height="*" Grid.Row="4"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*" Grid.Column="0"/>
@@ -16,8 +18,16 @@
             </Grid.ColumnDefinitions>
             <local:HeaderControl Text="School Settings" Grid.Row="0" Grid.ColumnSpan="2"/>
             <Label Text="Hours Goal" HorizontalOptions="Center" FontSize="20" Grid.Row="1" Grid.ColumnSpan="2"/>
-            <Entry IsReadOnly="True" x:Name="HoursGoal" Completed="HoursGoal_Completed" Text="Loading ..." Grid.Row="2" Grid.Column="0" Margin="20, 5" />
-            <Button Text="Edit" Grid.Row="2" Grid.Column="1" Margin="10, 5" x:Name="EditButton" Clicked="EditButton_Clicked"/>
+            <Entry IsReadOnly="True" x:Name="HoursGoal" Completed="HoursGoal_Completed" Text="Loading ..." Grid.Row="2" Grid.Column="0"  Margin="20, 5" BackgroundColor="Gray" />
+            <Button x:Name="EditButton" Clicked="EditButton_Clicked" Text="Edit" Grid.Row="2" Grid.Column="1"/>
+
+            <Label Text="Add Users" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" FontSize="20"/>
+            <Button Text="Submit" Grid.Row="3" Grid.Column="1" x:Name="SubmitstudentsButton" Clicked="SubmitstudentsButton_Clicked"/>
+            <ScrollView Grid.Row="4" Grid.ColumnSpan="2">
+                <StackLayout x:Name="UsersStack">
+                    
+                </StackLayout>
+            </ScrollView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
