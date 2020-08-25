@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -76,7 +74,7 @@ namespace Volunteerio.Views
             int itemsI = 0;
             foreach (View item in items)
             {
-                if (itemsI >= 4) {}
+                if (itemsI >= 4) { }
                 else if (((Entry)item).Text == "" || ((Entry)item).Text == null)
                 {
                     return;

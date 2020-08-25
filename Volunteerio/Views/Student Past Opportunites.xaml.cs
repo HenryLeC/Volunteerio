@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.IO;
+using System.Net;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using RestSharp;
-using System.Net;
-using System.IO;
-using Xamarin.Essentials;
 
 namespace Volunteerio.Views
 {
@@ -38,7 +36,7 @@ namespace Volunteerio.Views
             {
                 DisplayAlert("Server Error", "Please Try Agin Later", "OK");
             }
-            
+
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)

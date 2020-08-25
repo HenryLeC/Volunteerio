@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Volunteerio.Views
 {
@@ -40,7 +38,7 @@ namespace Volunteerio.Views
             {
                 DisplayAlert("Server Error", "Server Error, Please Try Agian Later", "Ok");
             }
-            
+
             base.OnAppearing();
         }
 

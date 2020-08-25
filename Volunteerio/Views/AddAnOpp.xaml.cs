@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Globalization;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Volunteerio.Views
 {
@@ -49,7 +47,7 @@ namespace Volunteerio.Views
                 };
 
                 string response = APIRequest.Request("AddOpp", true, Attributes);
-                
+
                 //Leave Page
                 if ((string)Xamarin.Forms.Application.Current.Properties["Role"] == "admin")
                 {

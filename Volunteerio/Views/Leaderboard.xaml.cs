@@ -1,9 +1,7 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace Volunteerio.Views
 {
@@ -31,18 +29,18 @@ namespace Volunteerio.Views
                 List<Dictionary<string, string>> leaderboard = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(request);
                 leaderboardListView.ItemsSource = leaderboard;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
-            
+
 
             base.OnAppearing();
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
         {
-            if(Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "student")
+            if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "student")
             {
                 Navigation.PushAsync(new Views.Student_Menu());
             }
@@ -50,7 +48,7 @@ namespace Volunteerio.Views
             {
                 Navigation.PushAsync(new Views.Administrator_Menu());
             }
-            
+
         }
 
         private void FilterDrop_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,12 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZXing.Net.Mobile.Forms;
-using Newtonsoft.Json;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using System.IO;
 
 namespace Volunteerio.Views
 {
@@ -46,7 +44,7 @@ namespace Volunteerio.Views
         {
             var scanPage = new ZXingScannerPage();
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(scanPage, true);
-            
+
 
             Navigation.PushAsync(scanPage);
 

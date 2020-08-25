@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Newtonsoft.Json;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using System.Globalization;
 
 namespace Volunteerio.Views
 {

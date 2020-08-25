@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Microcharts;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using Newtonsoft.Json;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using Microcharts;
 
 namespace Volunteerio.Views
 {
@@ -46,7 +44,7 @@ namespace Volunteerio.Views
                         ValueLabel = Current.ToString(),
                         Color = SkiaSharp.SKColor.FromHsv(196, 54, 100)
                     }
-                    
+
                 };
                 Chart.Chart = new PieChart()
                 {

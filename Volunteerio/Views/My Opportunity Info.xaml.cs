@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -56,7 +55,7 @@ namespace Volunteerio.Views
             {
                 DisplayAlert("Server Error", "Please Try Agin Later", "OK");
             }
-            
+
             base.OnAppearing();
         }
 
@@ -67,7 +66,7 @@ namespace Volunteerio.Views
                 bool delete = await DisplayAlert("Delete Opportunity", "Are you sure you would like to delete this opportuniy?", "Delete", "Cancel");
                 if (delete)
                 {
-                    string response = APIRequest.Request("DeleteOpp", true,new Dictionary<string, string>
+                    string response = APIRequest.Request("DeleteOpp", true, new Dictionary<string, string>
                     {
                         { "OppId", Opp["ID"] },
                     });
