@@ -66,7 +66,7 @@ namespace Volunteerio
                         Current.Properties["Token"] = ResponseDict["key"];
                         Current.Properties["Role"] = role;
                     }
-                    else if (role == "admin")
+                    else if (role == "admin" || role == "teacher")
                     {
                         MainPage = new NavigationPage(new Views.Administrator_Menu());
                         Current.Properties["Token"] = ResponseDict["key"];
