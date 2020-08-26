@@ -45,22 +45,32 @@ namespace Volunteerio.Views
                 //Parse Response
                 Dictionary<string, string> ResponseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(Response);
                 string role = ResponseDict["role"];
+                bool.TryParse(ResponseDict["firstTime"], out bool firstTime);
 
-
-                UserInfo user = new UserInfo
+                if (!firstTime)
                 {
-                    Password = Pass,
-                    Username = Uname,
-                    Role = role,
-                    Token = ResponseDict["key"]
-                };
-                string fileName = "data.json";
-                string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
-                string path = Path.Combine(documentsPath, fileName);
+                    UserInfo user = new UserInfo
+                    {
+                        Password = Pass,
+                        Username = Uname,
+                        Role = role,
+                        Token = ResponseDict["key"]
+                    };
+                    string fileName = "data.json";
+                    string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
+                    string path = Path.Combine(documentsPath, fileName);
 
-                File.WriteAllText(path, JsonConvert.SerializeObject(user));
+                    File.WriteAllText(path, JsonConvert.SerializeObject(user));
+                }
 
-                if (role == "student")
+                if (firstTime)
+                {
+                    Navigation.PushAsync(new Views.FirstLogin(Uname));
+                    Xamarin.Forms.Application.Current.Properties["Token"] = ResponseDict["key"];
+                    Xamarin.Forms.Application.Current.Properties["Role"] = role;
+                    Xamarin.Forms.Application.Current.MainPage = new Xamarin.Forms.NavigationPage(new Views.FirstLogin(Uname));
+                }
+                else if (role == "student")
                 {
                     Navigation.PushAsync(new Views.Student_Menu());
                     Xamarin.Forms.Application.Current.Properties["Token"] = ResponseDict["key"];
