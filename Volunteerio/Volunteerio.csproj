@@ -13,14 +13,12 @@
   <ItemGroup>
     <None Remove="Images\downloadIcon.png" />
     <None Remove="Images\Hamburger.png" />
-    <None Remove="Images\Hours.png" />
     <None Remove="Images\Volunteerio.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\downloadIcon.png" />
     <EmbeddedResource Include="Images\Hamburger.png" />
-    <EmbeddedResource Include="Images\Hours.png" />
     <EmbeddedResource Include="Images\Volunteerio.png" />
   </ItemGroup>
 

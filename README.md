@@ -1,2 +1,3 @@
 # Volunteerio
-## This is a continuation of mVolunteerio. We are in the process of rebranding all of mVolunteerio over to Volunteerio
+## Volunteerio is an app to track Community Service or Volunteer hours
+### Learn more at https://volunteerio.us
