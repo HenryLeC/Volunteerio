@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Volunteerio.Views.FirstLogin"
+             xmlns:local="clr-namespace:Volunteerio">
+    <ContentPage.Content>
+        <StackLayout>
+            <local:HeaderControl Text="Welcome To Volunteerio"/>
+            <Label Text="Please Fill Out Your Info" HorizontalOptions="Center" FontSize="20" Margin="0, 0, 0, 15"/>
+
+            <Label Text="Please Enter Your Email" FontSize="15"/>
+            <Entry x:Name="EmailEntry" Placeholder="example@example.com" Margin="0, 0, 0, 15"/>
+
+            <Label Text="Please Enter A New Password" FontSize="15"/>
+            <Entry x:Name="PasswordEntry" Placeholder="Password" Margin="0, 0, 0, 15" IsPassword="True"/>
+
+            <Button x:Name="SubmitButton" Clicked="SubmitButton_Clicked" Text="Submit" CornerRadius="30" Margin="20, 0, 20, 0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

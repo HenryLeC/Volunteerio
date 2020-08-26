@@ -9,7 +9,6 @@ namespace Volunteerio
     class APIRequest
     {
 
-        //public static string server = "http://10.30.20.228/";
         //public static string server = "http://192.168.86.57/api/";
         public static string server = "https://volunteerio.us/api/";
 
