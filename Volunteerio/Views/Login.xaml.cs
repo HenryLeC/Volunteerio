@@ -91,10 +91,7 @@ namespace Volunteerio.Views
                     Xamarin.Forms.Application.Current.Properties["Role"] = role;
                     Xamarin.Forms.Application.Current.MainPage = new Xamarin.Forms.NavigationPage(new Views.Administrator_Menu());
                 }
-                else
-                {
-                    FailedIndicator.Text = "Login Failed";
-                }
+                else {}
             }
             catch (Exception ex)
             {
@@ -129,6 +126,11 @@ namespace Volunteerio.Views
                 InsertsRow.Height = Insets.Top;
 
             }
+        }
+
+        private void ResetPassword_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Views.ResetPassword());
         }
     }
 }

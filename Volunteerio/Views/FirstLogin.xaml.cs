@@ -62,6 +62,8 @@ namespace Volunteerio.Views
                         Application.Current.MainPage = new NavigationPage(new Administrator_Menu());
                     }
 
+                    DisplayAlert("Confirm Your Email", "Please Confirm Your Email. You will recieve an email within a few minutes", "Ok");
+
                 }
                 else
                 {

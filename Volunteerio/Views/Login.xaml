@@ -25,8 +25,9 @@
             <Frame CornerRadius="30" BorderColor="Black" Margin="20, 0" HeightRequest="45">
                 <Entry x:Name="PasswordField" IsPassword="True" Placeholder="Password" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
             </Frame>
-            <Label HorizontalOptions="Center" x:Name="FailedIndicator" Text=""/>
             <Button CornerRadius="20" Text="LOG IN" Margin="40,40" BackgroundColor="{StaticResource MenuButtonBg}" x:Name="LogInButton" Clicked="LogInButton_Clicked" BorderColor="Black" BorderWidth="1"/>
+
+            <Button BorderColor="White" BorderWidth="0" Text="Reset Password" TextColor="Blue" BackgroundColor="White" Clicked="ResetPassword_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
