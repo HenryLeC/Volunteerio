@@ -54,7 +54,8 @@ namespace Volunteerio.Views
             Xamarin.Forms.Application.Current.Properties["Username"] = null;
             Xamarin.Forms.Application.Current.Properties["Password"] = null;
             Xamarin.Forms.Application.Current.Properties["Token"] = null;
-            Navigation.PushAsync(new Views.Login());
+            Application.Current.MainPage = new NavigationPage(new Views.Login());
+            Navigation.PopToRootAsync();
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
