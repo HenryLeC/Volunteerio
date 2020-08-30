@@ -13,11 +13,25 @@ namespace Volunteerio.Views
         {
             InitializeComponent();
             OppDate.MinimumDate = DateTime.Now;
+            string version = Xamarin.Essentials.DeviceInfo.VersionString;
+            if (Device.RuntimePlatform == Device.iOS && Xamarin.Essentials.DeviceInfo.VersionString == "14.0")
+            {
+                OppTime.IsEnabled = false;
+                OppDate.IsEnabled = false;
+
+                DisplayAlert("Unsuported iOS Version", "iOS 14 is not currently supported for creating opportunities.", "OK");
+            }
             OppClass.ItemsSource = Classes.CLASSES;
         }
 
         private void AddOppButton_Clicked(object sender, EventArgs e)
         {
+            if (Device.RuntimePlatform == Device.iOS && Xamarin.Essentials.DeviceInfo.VersionString == "14.0")
+            {
+
+                DisplayAlert("Unsuported iOS Version", "iOS 14 is not currently supported for creating opportunities.", "OK");
+                return;
+            }
 
             string Name = OppName.Text;
             string Hours = OppHours.Text;
