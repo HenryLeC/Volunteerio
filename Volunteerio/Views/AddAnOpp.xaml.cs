@@ -13,7 +13,6 @@ namespace Volunteerio.Views
         {
             InitializeComponent();
             OppDate.MinimumDate = DateTime.Now;
-            string version = Xamarin.Essentials.DeviceInfo.VersionString;
             if (Device.RuntimePlatform == Device.iOS && Xamarin.Essentials.DeviceInfo.VersionString == "14.0")
             {
                 OppTime.IsEnabled = false;
