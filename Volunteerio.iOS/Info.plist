@@ -20,15 +20,15 @@
 	<key>CFBundleIdentifier</key>
 	<string>us.Volunteerio.Volunteerio</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.7</string>
+	<string>1.0.10</string>
 	<key>CFBundleName</key>
 	<string>Volunteerio</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow access to the camera to scan barcodes</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-  <key>ITSAppUsesNonExemptEncryption</key>
-  <false/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
