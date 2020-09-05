@@ -20,11 +20,11 @@ namespace Volunteerio.Views
             base.OnAppearing();
 
             DateFilter.MinimumDate = DateTime.Now;
-            if (Device.RuntimePlatform == Device.iOS && Xamarin.Essentials.DeviceInfo.VersionString == "15.0")
-            {
-                DateFilter.IsEnabled = false;
-                DateFilter.Date = DateTime.Now;
-            }
+            //if (Device.RuntimePlatform == Device.iOS && Xamarin.Essentials.DeviceInfo.VersionString == "14.0")
+            //{
+            //    DateFilter.IsEnabled = false;
+            //    DateFilter.Date = DateTime.Now;
+            //}
 
             FillOpps();
         }
