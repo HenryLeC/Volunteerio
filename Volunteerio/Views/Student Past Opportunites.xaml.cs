@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -44,7 +45,7 @@ namespace Volunteerio.Views
             Navigation.PushAsync(new Views.Student_Menu());
         }
 
-        private void ExportButton_Clicked(object sender, EventArgs e)
+        private async void ExportButton_Clicked(object sender, EventArgs e)
         {
             //try
             //{
@@ -65,48 +66,50 @@ namespace Volunteerio.Views
 
             try
             {
-                //Create Client and Request
-                var client = new RestClient(APIRequest.server + "GenerateDoc")
-                {
-                    Timeout = 5000
-                };
-                var request = new RestRequest(Method.POST)
-                {
-                    AlwaysMultipartFormData = true
-                };
-                request.AddParameter("x-access-token", Xamarin.Forms.Application.Current.Properties["Token"] as string);
+                aiStack.IsVisible = true;
+                ai.IsRunning = true;
 
-                IRestResponse response = client.Execute(request);
+                string path = "";
 
-                if (response.StatusCode != HttpStatusCode.OK)
+                await Task.Run(() =>
                 {
-                    throw new Exception();
-                }
-
-                string path = Path.Combine(Xamarin.Forms.Application.Current.Properties["docsPath"] as string, "ExportedOpps.pdf");
-                string path2 = "";
-                foreach (char s in path)
-                {
-                    if (s == '\\')
+                    //Create Client and Request
+                    var client = new RestClient(APIRequest.server + "GenerateDoc")
                     {
-                        path2 += "/";
-                    }
-                    else
+                        Timeout = 5000
+                    };
+                    var request = new RestRequest(Method.POST)
                     {
-                        path2 += s.ToString();
-                    }
-                }
+                        AlwaysMultipartFormData = true
+                    };
+                    request.AddParameter("x-access-token", Xamarin.Forms.Application.Current.Properties["Token"] as string);
 
-                File.WriteAllBytes(path, response.RawBytes);
-                Launcher.OpenAsync(new OpenFileRequest
+                    IRestResponse response = client.Execute(request);
+
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        throw new Exception();
+                    }
+
+                    path = Path.Combine(Xamarin.Forms.Application.Current.Properties["docsPath"] as string, "ExportedOpps.pdf");
+
+                    File.WriteAllBytes(path, response.RawBytes);
+                });                
+
+                await Launcher.OpenAsync(new OpenFileRequest
                 {
                     File = new ReadOnlyFile(path, "application/pdf")
                 });
+
+                aiStack.IsVisible = false;
+                ai.IsRunning = false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                DisplayAlert("Error", "Server Error, Please Try Again Later", "OK");
+                aiStack.IsVisible = false;
+                ai.IsRunning = false;
+                await DisplayAlert("Error", "Server Error, Please Try Again Later", "OK");
             }
         }
     }

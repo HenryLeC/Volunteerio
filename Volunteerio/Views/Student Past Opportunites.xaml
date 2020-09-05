@@ -7,61 +7,66 @@
              x:Class="Volunteerio.Views.Student_Past_Opportunites"
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
-        <StackLayout>
-            <local:HeaderControl Text="Your Past Opportunities"/>
+        <Grid>
+            <StackLayout Grid.Column="0">
+                <local:HeaderControl Text="Your Past Opportunities"/>
 
-            <Grid Margin="0, 25, 0, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="50"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <BoxView BackgroundColor="{StaticResource HeaderColor}" WidthRequest="1000" Grid.ColumnSpan="2"/>
-                <Label Text="Past Opportunities" FontSize="35" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0, 0, 0" TextColor="#FFFFFF" Grid.Column="0"/>
-                <ImageButton Margin="10" x:Name="ExportButton" BackgroundColor="Transparent" Source="{local:ImageResource Source=Volunteerio.Images.downloadIcon.png}" HeightRequest="50" WidthRequest="50" Grid.Column="1" Clicked="ExportButton_Clicked"/>
-            </Grid>
-            
-            <ListView RowHeight="60" x:Name="PastOppsListView" Margin="0, 5, 0 , 0">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Path=[Name]}" FontSize="20"/>
-                                    <Label Text="{Binding Path=[Time]}" FontSize="20"/>
+                <Grid Margin="0, 25, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <BoxView BackgroundColor="{StaticResource HeaderColor}" WidthRequest="1000" Grid.ColumnSpan="2"/>
+                    <Label Text="Past Opportunities" FontSize="35" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0, 0, 0" TextColor="#FFFFFF" Grid.Column="0"/>
+                    <ImageButton Margin="10" x:Name="ExportButton" BackgroundColor="Transparent" Source="{local:ImageResource Source=Volunteerio.Images.downloadIcon.png}" HeightRequest="50" WidthRequest="50" Grid.Column="1" Clicked="ExportButton_Clicked"/>
+                </Grid>
+
+                <ListView RowHeight="60" x:Name="PastOppsListView" Margin="0, 5, 0 , 0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=[Name]}" FontSize="20"/>
+                                        <Label Text="{Binding Path=[Time]}" FontSize="20"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+                                        <Label Text="Hours" FontSize="20"/>
+                                    </StackLayout>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                                    <Label Text="Hours" FontSize="20"/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <BoxView BackgroundColor="{StaticResource HeaderColor}" HeightRequest="40" WidthRequest="1000" Margin="0, 25, 0, 0"/>
+                <Label Text="Past Hours" FontSize="35" HorizontalOptions="Center" Margin="0,-50, 0, 0" TextColor="#FFFFFF"/>
+                <ListView RowHeight="60" x:Name="PastHoursListView" Margin="0, 5, 0 , 0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
+                                        <Label Text="|" FontSize="20"/>
+                                        <Label Text="{Binding Path=[Confirmed]}" FontSize="20"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+                                        <Label Text="Hours" FontSize="20"/>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <BoxView BackgroundColor="{StaticResource HeaderColor}" HeightRequest="40" WidthRequest="1000" Margin="0, 25, 0, 0"/>
-            <Label Text="Past Hours" FontSize="35" HorizontalOptions="Center" Margin="0,-50, 0, 0" TextColor="#FFFFFF"/>
-            <ListView RowHeight="60" x:Name="PastHoursListView" Margin="0, 5, 0 , 0">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
-                                    <Label Text="|" FontSize="20"/>
-                                    <Label Text="{Binding Path=[Confirmed]}" FontSize="20"/>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                                    <Label Text="Hours" FontSize="20"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout x:Name="aiStack" IsVisible="False" Grid.Column="0">
+                <ActivityIndicator x:Name="ai" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
