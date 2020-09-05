@@ -47,23 +47,6 @@ namespace Volunteerio.Views
 
         private async void ExportButton_Clicked(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string response = APIRequest.Request("GenerateDoc", new Dictionary<string, string>()
-            //    {
-            //        { "x-access-token", Xamarin.Forms.Application.Current.Properties["Token"] as String }
-            //    });
-
-            //    //Parse Data
-            //    Dictionary<string, string> Message = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
-
-            //    DisplayAlert("Email Sent", Message["msg"], "Ok");
-            //}
-            //catch
-            //{
-            //    DisplayAlert("Server Error", "Please Try Agin Later", "OK");
-            //}
-
             try
             {
                 aiStack.IsVisible = true;

@@ -1,8 +1,13 @@
 ﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -61,6 +66,7 @@ namespace Volunteerio.Views
             add.CommandParameter = new List<View> { name, UName, passWd, iD, role, add };
             add.Clicked += Add_Clicked;
             StudentInput.Children.Add(add, 2, 1);
+            UsersStack.Children.Clear();
             UsersStack.Children.Add(StudentInput);
             #endregion
         }
@@ -197,6 +203,58 @@ namespace Volunteerio.Views
             catch
             {
                 DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
+            }
+        }
+
+        private async void ReportButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                aiStack.IsVisible = true;
+                ai.IsRunning = true;
+
+                string path = "";
+
+                await Task.Run(() =>
+                {
+                    //Create Client and Request
+                    var client = new RestClient(APIRequest.server + "StudentReport")
+                    {
+                        Timeout = 5000
+                    };
+                    var request = new RestRequest(Method.POST)
+                    {
+                        AlwaysMultipartFormData = true
+                    };
+                    request.AddParameter("x-access-token", Application.Current.Properties["Token"] as string);
+
+                    IRestResponse response = client.Execute(request);
+
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        throw new Exception();
+                    }
+
+                    string time = DateTime.Now.ToString("MMddyyHHmm");
+                    path = Path.Combine(Application.Current.Properties["docsPath"] as string, "StudentReport" + time + ".csv");
+
+                    File.WriteAllBytes(path, response.RawBytes);
+                });
+
+                await Launcher.OpenAsync(new OpenFileRequest
+                {
+                    File = new ReadOnlyFile(path, "text/csv")
+                });
+
+                aiStack.IsVisible = false;
+                ai.IsRunning = false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                aiStack.IsVisible = false;
+                ai.IsRunning = false;
+                await DisplayAlert("Error", "Server Error, Please Try Again Later", "OK");
             }
         }
     }
