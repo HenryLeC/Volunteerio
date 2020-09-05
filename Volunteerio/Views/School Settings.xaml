@@ -10,7 +10,8 @@
                 <RowDefinition Height="auto" Grid.Row="1"/>
                 <RowDefinition Height="auto" Grid.Row="2"/>
                 <RowDefinition Height="auto" Grid.Row="3"/>
-                <RowDefinition Height="*" Grid.Row="4"/>
+                <RowDefinition Height="auto" Grid.Row="4"/>
+                <RowDefinition Height="*" Grid.Row="5"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*" Grid.Column="0"/>
@@ -21,13 +22,20 @@
             <Entry IsReadOnly="True" x:Name="HoursGoal" Completed="HoursGoal_Completed" Text="Loading ..." Grid.Row="2" Grid.Column="0"  Margin="20, 5" BackgroundColor="Gray" />
             <Button x:Name="EditButton" Clicked="EditButton_Clicked" Text="Edit" Grid.Row="2" Grid.Column="1"/>
 
-            <Label Text="Add Users" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" FontSize="20"/>
-            <Button Text="Submit" Grid.Row="3" Grid.Column="1" x:Name="SubmitstudentsButton" Clicked="SubmitstudentsButton_Clicked"/>
-            <ScrollView Grid.Row="4" Grid.ColumnSpan="2">
+            <Label Text="Download Report" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" FontSize="20"/>
+            <ImageButton Margin="10" x:Name="ReportButton" BackgroundColor="Transparent" Source="{local:ImageResource Source=Volunteerio.Images.downloadIcon.png}" HeightRequest="30" Grid.Row="3" Grid.Column="1" Clicked="ReportButton_Clicked"/>
+
+            <Label Text="Add Users" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" FontSize="20"/>
+            <Button Text="Submit" Grid.Row="4" Grid.Column="1" x:Name="SubmitstudentsButton" Clicked="SubmitstudentsButton_Clicked"/>
+            <ScrollView Grid.Row="5" Grid.ColumnSpan="2">
                 <StackLayout x:Name="UsersStack">
                     
                 </StackLayout>
             </ScrollView>
+
+            <StackLayout x:Name="aiStack" Grid.ColumnSpan="2" Grid.RowSpan="6" IsVisible="False">
+                <ActivityIndicator x:Name="ai" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
