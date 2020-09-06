@@ -5,6 +5,9 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
+            </StackLayout.GestureRecognizers>
             <local:HeaderControl Text="Opportunity Info"/>
             <ScrollView>
                 <StackLayout>
@@ -17,6 +20,7 @@
                     <Label x:Name="OppClass" Text="Classification: " Margin="30, 20, 0, 0" FontSize="25"/>
                     <Label x:Name="OppVols" Text="" Margin="30, 20, 0, 0" FontSize="25"/>
                     <Button x:Name="BookOppButton" CornerRadius="30"  Text="Book Opportunity" Margin="30, 30, 30, 0" Clicked="BookOppButton_Clicked"/>
+                    <Button x:Name="UnBookOppButton" CornerRadius="30"  Text="UnBook Opportunity" Margin="30, 30, 30, 0" Clicked="UnBookOppButton_Clicked" IsVisible="False"/>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

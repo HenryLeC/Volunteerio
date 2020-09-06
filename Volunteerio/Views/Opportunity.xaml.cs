@@ -22,9 +22,15 @@ namespace Volunteerio.Views
             OppClass.Text += Opp["Class"];
             OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + " Volunteers";
 
-            if (int.Parse(Opp["CurrentVols"]) >= int.Parse(Opp["MaxVols"]) || (string)Application.Current.Properties["Role"] == "admin" || Bookable == false)
+            if (int.Parse(Opp["CurrentVols"]) >= int.Parse(Opp["MaxVols"]) || (string)Application.Current.Properties["Role"] == "admin")
             {
                 BookOppButton.IsEnabled = false;
+            }
+
+            if (Bookable == false)
+            {
+                BookOppButton.IsVisible = false;
+                UnBookOppButton.IsVisible = true;
             }
         }
 
@@ -63,7 +69,7 @@ namespace Volunteerio.Views
                 Dictionary<string, string> responseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
                 DisplayAlert("Opp Booked", responseDict["msg"], "Ok");
 
-                Navigation.PushAsync(new Views.Student_Menu());
+                Navigation.PopAsync();
             }
             catch
             {
@@ -82,6 +88,31 @@ namespace Volunteerio.Views
             {
                 Navigation.PushAsync(new Views.Administrator_Menu());
             }
+        }
+
+        private void UnBookOppButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                string response = APIRequest.Request("UnBookAnOpp", true, new Dictionary<string, string>()
+                {
+                    {"OppId", POpp["ID"] }
+                });
+
+                Dictionary<string, string> responseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+                DisplayAlert("Opp UnBooked", responseDict["msg"], "Ok");
+
+                Navigation.PopAsync();
+            }
+            catch
+            {
+                DisplayAlert("Server Error", "There Was A Server Error Please Try Again Later", "Ok");
+            }
+        }
+
+        private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }
