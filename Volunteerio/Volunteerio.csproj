@@ -130,4 +130,11 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\AdminOnly\" />
+    <Folder Include="Views\CommuOnly\" />
+    <Folder Include="Views\Adm-Com\" />
+    <Folder Include="Views\Student\" />
+  </ItemGroup>
 </Project>
