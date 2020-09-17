@@ -91,6 +91,11 @@ namespace Volunteerio.Views
         {
             Navigation.PushAsync(new ShowHours(((Xamarin.Forms.ListView)sender).SelectedItem as Dictionary<string, string>, StudentInfo));
         }
+
+        private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 
 }

@@ -19,18 +19,6 @@ namespace Volunteerio.Views
             InitializeComponent();
         }
 
-        private void HamburgerButton_Clicked(object sender, EventArgs e)
-        {
-            if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "community")
-            {
-                Navigation.PushAsync(new Views.Community_Member_Menu());
-            }
-            else if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
-            {
-                Navigation.PushAsync(new Views.Administrator_Menu());
-            }
-        }
-
         protected override void OnAppearing()
         {
             try
@@ -42,7 +30,13 @@ namespace Volunteerio.Views
 
                 List<Dictionary<string, string>> students = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(response);
 
+                if (Xamarin.Forms.Application.Current.Properties["Role"].ToString() == "admin")
+                {
+                    OppConf.IsVisible = false;
+                }
+
                 BookedStudentsListView.ItemsSource = students;
+                OppConf.Text += Opp["Confirmed"];
                 OppName.Text += Opp["Name"];
                 OppDate.Text += Opp["Time"];
                 OppLocation.Text += Opp["Location"];
@@ -85,6 +79,11 @@ namespace Volunteerio.Views
             {
                 await DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
+        }
+
+        private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }

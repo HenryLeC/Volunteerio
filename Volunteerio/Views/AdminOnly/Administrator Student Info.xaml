@@ -13,6 +13,9 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
+            </StackLayout.GestureRecognizers>
             <local:HeaderControl Text="Student Info"/>
 
             <Label Text="Student Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 04, 40" x:Name="StudentName"/>

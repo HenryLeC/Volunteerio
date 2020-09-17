@@ -8,6 +8,10 @@
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
+            </StackLayout.GestureRecognizers>
+            
             <local:HeaderControl Text="Confirm Opportunity"/>
 
             <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,30, 0, 0" FontSize="25"/>

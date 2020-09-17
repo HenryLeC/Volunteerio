@@ -21,7 +21,7 @@
                 <Entry x:Name="NameFilter" Grid.Column="0" Placeholder="Name" TextChanged="NameFilter_TextChanged"/>
                 <DatePicker x:Name="DateFilter" Grid.Column="1" DateSelected="DateFilter_DateSelected"/>
             </Grid>
-            <ListView RowHeight="200" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
+            <ListView RowHeight="200" x:Name="OppsListView" Margin="5, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

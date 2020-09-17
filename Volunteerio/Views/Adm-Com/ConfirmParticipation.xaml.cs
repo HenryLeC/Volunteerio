@@ -51,5 +51,10 @@ namespace Volunteerio.Views
                 DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
         }
+
+        private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }

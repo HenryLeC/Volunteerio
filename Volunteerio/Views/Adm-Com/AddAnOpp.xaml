@@ -16,7 +16,7 @@
                         <Entry x:Name="OppName" Placeholder="Name" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
                     </Frame>
                     <Frame CornerRadius="40" BorderColor="Black" Margin="10, 10" HeightRequest="45">
-                        <Entry x:Name="OppHours" Placeholder="Amont of Hours" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
+                        <Entry x:Name="OppHours" Placeholder="Amount of Hours" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>
                     </Frame>
                     <Frame CornerRadius="40" BorderColor="Black" Margin="10, 10" HeightRequest="45">
                         <Entry x:Name="OppLocation" Placeholder="Location" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>

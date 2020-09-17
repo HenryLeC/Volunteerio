@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZXing;
+using System.Drawing;
 
 namespace Volunteerio.Views
 {
@@ -27,6 +28,11 @@ namespace Volunteerio.Views
             {
                 Navigation.PushAsync(new Views.Administrator_Menu());
             }
+        }
+
+        private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }
