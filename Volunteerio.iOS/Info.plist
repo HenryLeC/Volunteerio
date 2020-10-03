@@ -19,8 +19,8 @@
 	<string>Volunteerio</string>
 	<key>CFBundleIdentifier</key>
 	<string>us.Volunteerio.Volunteerio</string>
-	<key>CFBundleVersion</key>
-	<string>1.0.10</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.1</string>
 	<key>CFBundleName</key>
 	<string>Volunteerio</string>
 	<key>NSCameraUsageDescription</key>
@@ -38,5 +38,7 @@
 	<string>LaunchScreen</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 </dict>
 </plist>
