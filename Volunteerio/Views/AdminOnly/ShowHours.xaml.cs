@@ -76,5 +76,11 @@ namespace Volunteerio.Views
             }
             Navigation.PushAsync(new Views.Administrator_Student_Info(StudentInfo));
         }
+
+        private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
+        {
+            Console.WriteLine("**** " + sender.ToString());
+            Navigation.PopAsync();
+        }
     }
 }
