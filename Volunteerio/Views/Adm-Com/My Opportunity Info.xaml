@@ -13,12 +13,9 @@
             </StackLayout.GestureRecognizers>
             
             <local:HeaderControl Text="My Opportunity"/>
-            <ScrollView>
+            <ScrollView x:Name="ScrollView">
                 <StackLayout>
-                    <StackLayout.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Right" Swiped="SwipeRight_Swiped"/>
-                    </StackLayout.GestureRecognizers>
-                    
+
                     <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,50, 0, 0" FontSize="25"/>
                     <Label x:Name="OppDate" Text="Date: " Margin="30, 20 , 0 , 0" FontSize="25"/>
                     <Label x:Name="OppHours" Text="Hours: " Margin="30, 20, 0, 0" FontSize="25"/>
@@ -30,9 +27,6 @@
                 </StackLayout>
             </ScrollView>
             <ListView RowHeight="70" x:Name="BookedStudentsListView" Margin="0, 5, 0 , 0" HeightRequest="200">
-                <ListView.GestureRecognizers>
-                    <SwipeGestureRecognizer Direction="Right" Swiped="SwipeRight_Swiped"/>
-                </ListView.GestureRecognizers>
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
