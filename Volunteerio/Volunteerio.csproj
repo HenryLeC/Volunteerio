@@ -48,7 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="HeaderControl.xaml">
+    <EmbeddedResource Update="Controls\HeaderControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AddAnOpp.xaml">
