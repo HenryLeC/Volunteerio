@@ -33,13 +33,18 @@ namespace Volunteerio.Views
             //}
 
             string Name = OppName.Text;
-            string Hours = OppHours.Text;
             string Location = OppLocation.Text;
             DateTime Date = OppDate.Date.Add(OppTime.Time);
             string Class = OppClass.SelectedItem as string;
             bool MaxVolsB = int.TryParse(OppMaxVols.Text, out int MaxVols);
+            bool HoursB = int.TryParse(OppHours.Text, out int Hours);
 
-            if (!MaxVolsB)
+            if (!HoursB)
+            {
+                DisplayAlert("Error", "Enter a number for Hours", "Ok");
+                return;
+            }
+            else if (!MaxVolsB)
             {
                 DisplayAlert("Error", "Enter a number for Maximum Volunteers", "Ok");
                 return;
@@ -53,7 +58,7 @@ namespace Volunteerio.Views
                     {"Name", Name },
                     {"Date", Date.ToString("yyyy-MM-dd'T'HH:mm:sszzz", CultureInfo.InvariantCulture) },
                     {"Location", Location },
-                    {"Hours", Hours },
+                    {"Hours", Hours.ToString() },
                     {"Class", Class },
                     {"Description", DescriptionEditor.Text },
                     {"MaxVols", MaxVols.ToString() }
