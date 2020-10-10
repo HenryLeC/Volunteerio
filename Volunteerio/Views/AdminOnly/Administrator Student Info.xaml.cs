@@ -145,6 +145,16 @@ namespace Volunteerio.Views
         {
             Navigation.PopAsync();
         }
+
+        private void EditButton_Clicked(object sender, EventArgs e)
+        {
+            Popup.IsVisible = true;
+        }
+
+        private void ClosePopup_Clicked(object sender, EventArgs e)
+        {
+            Popup.IsVisible = false;
+        }
     }
 
 }
