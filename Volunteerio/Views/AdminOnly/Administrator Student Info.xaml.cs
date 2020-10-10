@@ -166,7 +166,7 @@ namespace Volunteerio.Views
                     {"goal", userGoal }
                 });
 
-                StudentInfo["HoursGoal"] = userGoal;
+                StudentInfo["HoursGoal"] = response;
                 Hours.Text = "No. of Hours: " + StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
 
             }
