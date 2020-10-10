@@ -147,13 +147,15 @@ namespace Volunteerio.Views
             Navigation.PopAsync();
         }
 
-        private void EditButton_Clicked(object sender, EventArgs e)
+        private async void EditButton_Clicked(object sender, EventArgs e)
         {
             Popup.IsVisible = true;
+            await Popup.FadeTo(1, 200);
         }
 
-        private void ClosePopup_Clicked(object sender, EventArgs e)
+        private async void ClosePopup_Clicked(object sender, EventArgs e)
         {
+            await Popup.FadeTo(0, 200);
             Popup.IsVisible = false;
 
             try
@@ -163,10 +165,14 @@ namespace Volunteerio.Views
                     {"userId", StudentInfo["ID"] },
                     {"goal", userGoal }
                 });
+
+                StudentInfo["HoursGoal"] = userGoal;
+                Hours.Text = "No. of Hours: " + StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
+
             }
             catch
             {
-                DisplayAlert("Server Error", "Server Error, Please try again later", "Ok");
+                await DisplayAlert("Server Error", "Server Error, Please try again later", "Ok");
             }
 
         }
