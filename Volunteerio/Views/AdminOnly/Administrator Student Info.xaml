@@ -75,7 +75,7 @@
             <!--Popup Window-->
             <Frame x:Name="Popup" AbsoluteLayout.LayoutBounds="0.5,0.5,300,150" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="false">
                 <StackLayout>
-                    <Entry Placeholder="Hours Goal"/>
+                    <Entry Placeholder="Hours Goal" x:Name="UserGoalEntry" TextChanged="UserGoalEntry_TextChanged"/>
                     <Button x:Name="ClosePopup" Clicked="ClosePopup_Clicked" Text="Confirm" CornerRadius="20" Margin="10" HeightRequest="40"/>
                 </StackLayout>
             </Frame>

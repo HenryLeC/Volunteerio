@@ -11,6 +11,7 @@ namespace Volunteerio.Views
     public partial class Administrator_Student_Info : ContentPage
     {
         private Dictionary<string, string> StudentInfo { get; set; }
+        private string userGoal { get; set; } = "";
 
         public Administrator_Student_Info(Dictionary<string, string> Student)
         {
@@ -154,7 +155,27 @@ namespace Volunteerio.Views
         private void ClosePopup_Clicked(object sender, EventArgs e)
         {
             Popup.IsVisible = false;
+
+            try
+            {
+                string response = APIRequest.Request("UserSpecificGoal", true, new Dictionary<string, string>
+                {
+                    {"userId", StudentInfo["ID"] },
+                    {"goal", userGoal }
+                });
+            }
+            catch
+            {
+                DisplayAlert("Server Error", "Server Error, Please try again later", "Ok");
+            }
+
         }
+
+        private void UserGoalEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            userGoal = ((Entry)sender).Text;
+        }
+
     }
 
 }
