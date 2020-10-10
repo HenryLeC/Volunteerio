@@ -25,6 +25,9 @@ namespace Volunteerio.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            // Enable Expander Experiemental
+            Xamarin.Forms.Forms.SetFlags("Expander_Experimental");
+
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             return base.FinishedLaunching(app, options);

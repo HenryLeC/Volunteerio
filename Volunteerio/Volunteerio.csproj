@@ -13,12 +13,14 @@
   <ItemGroup>
     <None Remove="Images\downloadIcon.png" />
     <None Remove="Images\Hamburger.png" />
+    <None Remove="Images\Icons\PencilIcon.png" />
     <None Remove="Images\Volunteerio.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\downloadIcon.png" />
     <EmbeddedResource Include="Images\Hamburger.png" />
+    <EmbeddedResource Include="Images\Icons\PencilIcon.png" />
     <EmbeddedResource Include="Images\Volunteerio.png" />
   </ItemGroup>
 
@@ -48,7 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="HeaderControl.xaml">
+    <EmbeddedResource Update="Controls\HeaderControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AddAnOpp.xaml">

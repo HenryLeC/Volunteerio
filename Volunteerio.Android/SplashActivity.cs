@@ -13,6 +13,9 @@ namespace Volunteerio.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            // Enable Expander Experiemental
+            Xamarin.Forms.Forms.SetFlags("Expander_Experimental");
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();

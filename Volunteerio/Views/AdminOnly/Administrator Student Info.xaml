@@ -12,47 +12,73 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout.GestureRecognizers>
-                <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
-            </StackLayout.GestureRecognizers>
-            <local:HeaderControl Text="Student Info"/>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--Main Content-->
+            <StackLayout>
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
+                </StackLayout.GestureRecognizers>
+                <local:HeaderControl Text="Student Info"/>
 
-            <Label Text="Student Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 04, 40" x:Name="StudentName"/>
-            <Label Text="Student ID: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40,-40, 40, 1" x:Name="StudentId"/>
-            <Label Text="No. of Hours: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 0, 40, 1" x:Name="Hours"/>
-            <Label Text="Past Opportunities" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
+                <Label Text="Student Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 04, 40" x:Name="StudentName"/>
+                <Label Text="Student ID: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40,-40, 40, 1" x:Name="StudentId"/>
+                <Label Text="No. of Hours: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 0, 40, 1" x:Name="Hours"/>
+
+                <ImageButton x:Name="EditButton" Clicked="EditButton_Clicked" Margin="0, 0, 20, 0" BackgroundColor="Transparent" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" Source="{local:ImageResource Source=Volunteerio.Images.Icons.PencilIcon.png}" />
+
+                <Expander Margin="0, 0, 0, 10">
+                    <Expander.Header>
+                        <Label Text="Past Opportunities" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
+                    </Expander.Header>
+                    <StackLayout x:Name="PastOppsStack" />
+                </Expander>
+
+                <Expander Margin="0, 0, 0, 10" >
+                    <Expander.Header>
+                        <Label Text="Past Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
+                    </Expander.Header>
+                    <StackLayout x:Name="PastHoursStack" />
+                </Expander>
             
-            <ListView RowHeight="70" x:Name="PastOppsListView" Margin="0, 5, 0 , 0" HeightRequest="200" IsEnabled="False">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Path=[Name]}" FontSize="20"/>
-                                <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Label Text="Manually Added Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
-            <ListView RowHeight="70" x:Name="HoursListView" Margin="0, 5, 0 , 0" HeightRequest="200" ItemSelected="HoursListView_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Vertical" Grid.Column="0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
-                                    <Label Text=" | " FontSize="20"/>
-                                    <Label Text="{Binding Path=[Confirmed]}" FontSize="20"/>
+                <!--<ListView RowHeight="70" x:Name="PastOppsListView" Margin="0, 5, 0 , 0" HeightRequest="200" IsEnabled="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding Path=[Name]}" FontSize="20"/>
+                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
                                 </StackLayout>
-                                <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label Text="Manually Added Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
+                <ListView RowHeight="70" x:Name="HoursListView" Margin="0, 5, 0 , 0" HeightRequest="200" ItemSelected="HoursListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Grid.Column="0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
+                                        <Label Text=" | " FontSize="20"/>
+                                        <Label Text="{Binding Path=[Confirmed]}" FontSize="20"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+            </StackLayout>
+    
+            <!--Popup Window-->
+            <Frame x:Name="Popup" AbsoluteLayout.LayoutBounds="0.5,0.5,300,150" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="false">
+                <StackLayout>
+                    <Entry Placeholder="Hours Goal" x:Name="UserGoalEntry" TextChanged="UserGoalEntry_TextChanged"/>
+                    <Button x:Name="ClosePopup" Clicked="ClosePopup_Clicked" Text="Confirm" CornerRadius="20" Margin="10" HeightRequest="40"/>
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
