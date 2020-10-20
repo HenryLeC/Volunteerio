@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microcharts;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -10,6 +11,7 @@ namespace Volunteerio.Views
     public partial class Administrator_Student_Info : ContentPage
     {
         private Dictionary<string, string> StudentInfo { get; set; }
+        private string userGoal { get; set; } = "";
 
         public Administrator_Student_Info(Dictionary<string, string> Student)
         {
@@ -29,17 +31,65 @@ namespace Volunteerio.Views
                 StudentId.Text += StudentInfo["StuId"];
                 Hours.Text += StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
 
-                PastOppsListView.ItemsSource = StudentHours["PastOpps"];
-                HoursListView.ItemsSource = StudentHours["Hours"];
+                foreach (var Hour in StudentHours["Hours"])
+                {
+                    TapGestureRecognizer click = new TapGestureRecognizer();
+                    click.Tapped += (s, e) => {
+                        HoursListView_ItemSelected(Hour);
+                    };
+                    StackLayout stack = new StackLayout
+                    {
+                        Orientation = StackOrientation.Vertical,
+                        Children =
+                        {
+                            new Label
+                            {
+                                Text = Hour["Reason"] + " | " + Hour["Confirmed"],
+                                FontSize = 20.0
+                            },
+                            new Label
+                            {
+                                Text = Hour["Hours"],
+                                FontSize = 20.0
+                            }
+                        }
+                    };
+                    stack.GestureRecognizers.Add(click);
+                    PastHoursStack.Children.Add(stack);
+                }
 
-                if (StudentHours["PastOpps"].Count == 0)
+                foreach (var Hour in StudentHours["PastOpps"])
                 {
-                    PastOppsListView.HeightRequest = 50;
+                    PastOppsStack.Children.Add(new StackLayout
+                    {
+                        Orientation = StackOrientation.Vertical,
+                        Children =
+                        {
+                            new Label
+                            {
+                                Text = Hour["Name"],
+                                FontSize = 20.0
+                            },
+                            new Label
+                            {
+                                Text = Hour["Hours"],
+                                FontSize = 20.0
+                            }
+                        }
+                    });
                 }
-                if (StudentHours["Hours"].Count == 0)
-                {
-                    HoursListView.HeightRequest = 50;
-                }
+
+                //PastOppsListView.ItemsSource = StudentHours["PastOpps"];
+                //HoursListView.ItemsSource = StudentHours["Hours"];
+
+                //if (StudentHours["PastOpps"].Count == 0)
+                //{
+                //    PastOppsListView.HeightRequest = 50;
+                //}
+                //if (StudentHours["Hours"].Count == 0)
+                //{
+                //    HoursListView.HeightRequest = 50;
+                //}
             }
             catch
             {
@@ -87,15 +137,51 @@ namespace Volunteerio.Views
             Navigation.PushAsync(new Views.Administrator_Student_Info(StudentInfo));
         }
 
-        private void HoursListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void HoursListView_ItemSelected(Dictionary<string, string> Hour)
         {
-            Navigation.PushAsync(new ShowHours(((Xamarin.Forms.ListView)sender).SelectedItem as Dictionary<string, string>, StudentInfo));
+            Navigation.PushAsync(new ShowHours(Hour, StudentInfo));
         }
 
         private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
         {
             Navigation.PopAsync();
         }
+
+        private async void EditButton_Clicked(object sender, EventArgs e)
+        {
+            Popup.IsVisible = true;
+            await Popup.FadeTo(1, 200);
+        }
+
+        private async void ClosePopup_Clicked(object sender, EventArgs e)
+        {
+            await Popup.FadeTo(0, 200);
+            Popup.IsVisible = false;
+
+            try
+            {
+                string response = APIRequest.Request("UserSpecificGoal", true, new Dictionary<string, string>
+                {
+                    {"userId", StudentInfo["ID"] },
+                    {"goal", userGoal }
+                });
+
+                StudentInfo["HoursGoal"] = response;
+                Hours.Text = "No. of Hours: " + StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
+
+            }
+            catch
+            {
+                await DisplayAlert("Server Error", "Server Error, Please try again later", "Ok");
+            }
+
+        }
+
+        private void UserGoalEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            userGoal = ((Entry)sender).Text;
+        }
+
     }
 
 }

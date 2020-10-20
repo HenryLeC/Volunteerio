@@ -30,6 +30,9 @@ namespace Volunteerio.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            // Enable Expander Experiemental
+            Xamarin.Forms.Forms.SetFlags("Expander_Experimental");
         }
 
         /// <summary>

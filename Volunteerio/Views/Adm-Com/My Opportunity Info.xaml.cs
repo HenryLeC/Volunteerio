@@ -44,6 +44,15 @@ namespace Volunteerio.Views
                 OppSponsor.Text += Opp["Sponsor"];
                 OppClass.Text += Opp["Class"];
                 OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + " Volunteers";
+
+                SwipeGestureRecognizer swipe = new SwipeGestureRecognizer() { Direction = SwipeDirection.Right };
+                swipe.Swiped += SwipeRight_Swiped;
+
+                if (Device.RuntimePlatform == Device.Android)
+                {
+                    ScrollView.GestureRecognizers.Add(swipe);
+                    BookedStudentsListView.GestureRecognizers.Add(swipe);
+                }
             }
             catch
             {
@@ -83,6 +92,7 @@ namespace Volunteerio.Views
 
         private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
         {
+            Console.WriteLine("**** " + sender.ToString());
             Navigation.PopAsync();
         }
     }
