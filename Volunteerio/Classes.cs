@@ -10,7 +10,8 @@ namespace Volunteerio
             "Environment",
             "Civic",
             "Humanitarian",
-            "School"
+            "School",
+            "New Class"
         };
     }
 }
