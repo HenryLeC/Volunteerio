@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using Xamarin.Forms;
+using Newtonsoft.Json;
 
 namespace Volunteerio
 {
-    class APIRequest
+    class APIRequest<T>
     {
 
         //public static string server = "http://192.168.86.57/api/";
         public static string server = "https://www.volunteerio.us/api/";
 
-        public static string Request(string Route, bool Token, Dictionary<string, string> Parameters)
+        public static T Request(string Route, bool Token, Dictionary<string, string> Parameters)
         {
             int ErrorCode = 0;
 
@@ -50,12 +51,22 @@ namespace Volunteerio
                     ErrorCode = 500;
                     throw new Exception();
                 }
-                return response.Content;
+
+                if (typeof(T) == typeof(string))
+                {
+                    return (T)(object)response.Content;
+                }
+                else
+                {
+                    return JsonConvert.DeserializeObject<T>(response.Content);
+                }
             }
-            catch
+            catch (Exception ex)
             {
                 throw new ServerErrorException(ErrorCode);
             }
         }
     }
+
+    class APIRequest : APIRequest<string> { }
 }
