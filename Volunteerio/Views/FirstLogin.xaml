@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Volunteerio.Views.FirstLogin"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Welcome To Volunteerio"/>
+            <controls:HeaderControl Text="Welcome To Volunteerio"/>
             <Label Text="Please Fill Out Your Info" HorizontalOptions="Center" FontSize="20" Margin="0, 0, 0, 15"/>
 
             <Label Text="Please Enter Your Email" FontSize="15"/>

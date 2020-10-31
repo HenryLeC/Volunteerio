@@ -6,13 +6,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Sign_In_Students"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.GestureRecognizers>
                 <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
             </StackLayout.GestureRecognizers>
-            <local:HeaderControl Text="Sign In Students"/>
+            <controls:HeaderControl Text="Sign In Students"/>
             <zxing:ZXingBarcodeImageView Margin="0, 20, 0, 0" x:Name="Barcode" HeightRequest="300" WidthRequest="300"/>
             <Label Text="Have Students Scan Code In App To Get Hours" TextColor="#000000" FontSize="40" Margin="39,60,0,0"/>
         </StackLayout>

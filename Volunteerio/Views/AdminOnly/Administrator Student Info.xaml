@@ -5,12 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Administrator_Student_Info"
+             xmlns:controls="clr-namespace:Volunteerio.Controls"
              xmlns:local="clr-namespace:Volunteerio">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:StringToBoolCoverter x:Key="stringToBool"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
     <ContentPage.Content>
         <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <!--Main Content-->
@@ -18,7 +14,7 @@
                 <StackLayout.GestureRecognizers>
                     <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
                 </StackLayout.GestureRecognizers>
-                <local:HeaderControl Text="Student Info"/>
+                <controls:HeaderControl Text="Student Info"/>
 
                 <Label Text="Student Name: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40, 20, 04, 40" x:Name="StudentName"/>
                 <Label Text="Student ID: " FontSize="30" TextColor="#000000" HorizontalOptions="Start" Margin="40,-40, 40, 1" x:Name="StudentId"/>

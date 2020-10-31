@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Volunteerio.Views.Opportunity"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.GestureRecognizers>
                 <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
             </StackLayout.GestureRecognizers>
-            <local:HeaderControl Text="Opportunity Info"/>
+            <controls:HeaderControl Text="Opportunity Info"/>
             <ScrollView>
                 <StackLayout>
                     <Label x:Name="OppName" Text="Opportunity Name: " Margin="30,20, 0, 0" FontSize="25"/>

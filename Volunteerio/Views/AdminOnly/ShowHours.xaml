@@ -5,18 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.ShowHours"
-             xmlns:local="clr-namespace:Volunteerio">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:StringToBoolCoverter x:Key="stringToBool"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.GestureRecognizers>
                 <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
             </StackLayout.GestureRecognizers>
-            <local:HeaderControl Text="Manually Added Hours"/>
+            <controls:HeaderControl Text="Manually Added Hours"/>
 
             <Label x:Name="StuNameL" Margin="30, 20, 0, 0" Text="Student Name: " FontSize="20"/>
             <Label x:Name="HourReason" Margin="30, 20, 0, 0" Text="Reason: " FontSize="20"/>

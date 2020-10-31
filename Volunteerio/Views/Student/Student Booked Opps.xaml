@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Student_Booked_Opps"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Your Booked Opps"/>
+            <controls:HeaderControl Text="Your Booked Opps"/>
 
             <ListView RowHeight="60" x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected">
                 <ListView.ItemTemplate>

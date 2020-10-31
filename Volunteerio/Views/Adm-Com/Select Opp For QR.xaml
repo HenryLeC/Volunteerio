@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Select_Opp_For_QR"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Select An Opportunity"/>
+            <controls:HeaderControl Text="Select An Opportunity"/>
 
             <Label Text="" x:Name="ErrorMesage" Margin="0, 20, 0, 0"/>
             <ListView x:Name="OppsListView" Margin="0, 5, 0 , 0" ItemSelected="OppsListView_ItemSelected" RowHeight="40">

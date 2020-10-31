@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Administrator_Dashboard"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -13,7 +13,7 @@
                 <RowDefinition Grid.Row="1" Height="*"/>
                 <RowDefinition Grid.Row="2" Height="*"/>
             </Grid.RowDefinitions>
-            <local:HeaderControl Text="Your Dashboard" Grid.Row="0"/>
+            <controls:HeaderControl Text="Your Dashboard" Grid.Row="0"/>
 
             <StackLayout Grid.Row="1">
                 <Label Text="Your Opportunities" FontSize="20" HorizontalOptions="Center"/>

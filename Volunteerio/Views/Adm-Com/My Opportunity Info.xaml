@@ -5,14 +5,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.My_Opportunity_Info"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.GestureRecognizers>
                 <SwipeGestureRecognizer x:Name="SwipeRight" Direction="Right" Swiped="SwipeRight_Swiped"/>
             </StackLayout.GestureRecognizers>
             
-            <local:HeaderControl Text="My Opportunity"/>
+            <controls:HeaderControl Text="My Opportunity"/>
             <ScrollView x:Name="ScrollView">
                 <StackLayout>
 

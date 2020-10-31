@@ -3,7 +3,7 @@ using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Volunteerio
+namespace Volunteerio.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HeaderControl : Grid

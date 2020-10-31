@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Inbox"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Inbox"/>
+            <controls:HeaderControl Text="Inbox"/>
 
             <ListView x:Name="NotificationsListView" Margin="0, 25, 0 , 0" ItemSelected="NotificationsListView_ItemSelected">
                 <ListView.ItemTemplate>

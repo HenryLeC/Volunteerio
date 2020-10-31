@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Administrator_Student_Search"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Your Students"/>
+            <controls:HeaderControl Text="Your Students"/>
 
             <Frame CornerRadius="30" BorderColor="Black" Margin="20, 50" HeightRequest="45">
                 <Entry x:Name="FilterField" Placeholder="Student Name or Id" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"/>

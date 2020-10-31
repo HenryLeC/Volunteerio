@@ -4,14 +4,21 @@ using System.Collections.Generic;
 using System.Net;
 using Xamarin.Forms;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Volunteerio
 {
     class APIRequest<T>
     {
 
-        //public static string server = "http://192.168.86.57/api/";
-        public static string server = "https://www.volunteerio.us/api/";
+        public static string server = "http://192.168.86.57/api/";
+        //public static string server = "https://www.volunteerio.us/api/";
+
+        public async static Task<T> RequestAsync(string Route, bool Token, Dictionary<string, string> Paramters)
+        {
+            T val = await Task.Run(() => Request(Route, Token, Paramters));
+            return val;
+        }
 
         public static T Request(string Route, bool Token, Dictionary<string, string> Parameters)
         {

@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.AddHours"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Add Hours"/>
+            <controls:HeaderControl Text="Add Hours"/>
 
             <Frame Margin="20, 20, 20, 0" CornerRadius="30" BorderColor="LightGray">
                 <Entry x:Name="HoursEntry" Placeholder="Hours" FontSize="20"/>

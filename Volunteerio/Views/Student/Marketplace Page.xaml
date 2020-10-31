@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Marketplace_Page"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Book an Opportunity"/>
+            <controls:HeaderControl Text="Book an Opportunity"/>
 
             <Grid Margin="0, 0, 0, 0">
                 <Grid.ColumnDefinitions>

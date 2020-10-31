@@ -5,11 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Student_Past_Opportunites"
+             xmlns:controls="clr-namespace:Volunteerio.Controls"
              xmlns:local="clr-namespace:Volunteerio">
     <ContentPage.Content>
         <Grid>
             <StackLayout Grid.Column="0">
-                <local:HeaderControl Text="Your Past Opportunities"/>
+                <controls:HeaderControl Text="Your Past Opportunities"/>
 
                 <Grid Margin="0, 25, 0, 0">
                     <Grid.ColumnDefinitions>

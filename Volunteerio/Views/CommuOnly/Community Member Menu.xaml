@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Volunteerio.Views.Community_Member_Menu"
-             xmlns:local="clr-namespace:Volunteerio">
+             xmlns:controls="clr-namespace:Volunteerio.Controls">
     <ContentPage.Content>
         <StackLayout>
-            <local:HeaderControl Text="Community Menu"/>
+            <controls:HeaderControl Text="Community Menu"/>
 
             <Button x:Name="DashButton" Clicked="DashButton_Clicked" Text="Dashboard" Margin="20, 30, 20, 0" CornerRadius="30" HeightRequest="60" FontSize="30" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}" BorderWidth="1" TextColor="{StaticResource MenuBtnTextC}"/>
             <Button x:Name="AddAnOppButton" Clicked="AddAnOppButton_Clicked" Text="Add An Opportunity" Margin="20, 30, 20, 0" CornerRadius="30" HeightRequest="60" FontSize="25" BackgroundColor="{StaticResource MenuButtonBg}" BorderColor="{StaticResource MenuBtnBorderC}" BorderWidth="1" TextColor="{StaticResource MenuBtnTextC}"/>

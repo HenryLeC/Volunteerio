@@ -65,6 +65,9 @@
     <EmbeddedResource Update="Views\Administrator Menu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\AdminOnly\GroupsEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ConfirmParticipation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -134,7 +137,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\AdminOnly\" />
     <Folder Include="Views\CommuOnly\" />
     <Folder Include="Views\Adm-Com\" />
     <Folder Include="Views\Student\" />
