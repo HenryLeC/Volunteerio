@@ -11,8 +11,8 @@ namespace Volunteerio
     class APIRequest<T>
     {
 
-        public static string server = "http://192.168.86.57/api/";
-        //public static string server = "https://www.volunteerio.us/api/";
+        //public static string server = "http://192.168.86.57/api/";
+        public static string server = "https://www.volunteerio.us/api/";
 
         public async static Task<T> RequestAsync(string Route, bool Token, Dictionary<string, string> Paramters)
         {
