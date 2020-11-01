@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -59,7 +56,7 @@ namespace Volunteerio.Views.AdminOnly
             {
                 await DisplayAlert("Server Error", "Server Error, Please Try Again Later", "Ok");
             }
-            
+
         }
 
         private void GroupNameEntry_TextChanged(object sender, TextChangedEventArgs e)
@@ -70,12 +67,6 @@ namespace Volunteerio.Views.AdminOnly
         private void GroupGoalEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             GroupGoal = ((Entry)sender).Text;
-        }
-
-        private void ClickGroup_Clicked(object sender, EventArgs e)
-        {
-            TapGestureRecognizer senderTap = (TapGestureRecognizer)sender;
-            Dictionary<string, string> data = senderTap.CommandParameter as Dictionary<string, string>;
         }
     }
 }

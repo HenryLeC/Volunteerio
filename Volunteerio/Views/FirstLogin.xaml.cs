@@ -10,8 +10,7 @@ namespace Volunteerio.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FirstLogin : ContentPage
     {
-
-        string uName;
+        readonly string uName;
 
         public FirstLogin(string uName)
         {
@@ -39,7 +38,7 @@ namespace Volunteerio.Views
                         Username = uName,
                         Role = role,
                         Token = Application.Current.Properties["Token"] as string
-                };
+                    };
                     string fileName = "data.json";
                     string documentsPath = Xamarin.Forms.Application.Current.Properties["docsPath"].ToString(); // Documents folder
                     string path = Path.Combine(documentsPath, fileName);

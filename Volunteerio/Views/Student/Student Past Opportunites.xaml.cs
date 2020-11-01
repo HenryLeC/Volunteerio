@@ -77,7 +77,7 @@ namespace Volunteerio.Views
                     path = Path.Combine(Xamarin.Forms.Application.Current.Properties["docsPath"] as string, "ExportedOpps.pdf");
 
                     File.WriteAllBytes(path, response.RawBytes);
-                });                
+                });
 
                 await Launcher.OpenAsync(new OpenFileRequest
                 {

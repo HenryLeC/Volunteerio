@@ -91,7 +91,7 @@ namespace Volunteerio.Views
                     Xamarin.Forms.Application.Current.Properties["Role"] = role;
                     Xamarin.Forms.Application.Current.MainPage = new Xamarin.Forms.NavigationPage(new Views.Administrator_Menu());
                 }
-                else {}
+                else { }
             }
             catch (Exception ex)
             {

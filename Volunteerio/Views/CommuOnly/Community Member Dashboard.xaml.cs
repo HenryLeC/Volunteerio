@@ -20,7 +20,7 @@ namespace Volunteerio.Views
 
             try
             {
-                string Response = APIRequest.Request("MyOpps", true, new Dictionary<string, string>() {});
+                string Response = APIRequest.Request("MyOpps", true, new Dictionary<string, string>() { });
 
                 //Parse Data
                 List<Dictionary<string, string>> Opps = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(Response);

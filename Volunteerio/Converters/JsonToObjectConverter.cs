@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Globalization;
-using System.Xml.Serialization;
 using Xamarin.Forms;
-using Newtonsoft.Json;
 
 namespace Volunteerio.Converters
 {

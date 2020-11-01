@@ -1,6 +1,4 @@
-﻿using Microcharts;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -38,7 +36,8 @@ namespace Volunteerio.Views
                 foreach (var Hour in StudentHours["Hours"])
                 {
                     TapGestureRecognizer click = new TapGestureRecognizer();
-                    click.Tapped += (s, e) => {
+                    click.Tapped += (s, e) =>
+                    {
                         HoursListView_ItemSelected(Hour);
                     };
                     StackLayout stack = new StackLayout
@@ -90,7 +89,7 @@ namespace Volunteerio.Views
 
                 var Groups = await APIRequest<List<Dictionary<string, string>>>.RequestAsync("getGroups", true, new Dictionary<string, string>());
 
-                var GroupsClean = new List<string>() { 
+                var GroupsClean = new List<string>() {
                     "None"
                 };
 
@@ -170,7 +169,8 @@ namespace Volunteerio.Views
 
             try
             {
-                if ((StudentInfo["userSpecific"] == "false" && UserGoalEntry.Text != "") || (StudentInfo["userSpecific"] == "true" && UserGoalEntry.Text != StudentInfo["HoursGoal"])){
+                if ((StudentInfo["userSpecific"] == "false" && UserGoalEntry.Text != "") || (StudentInfo["userSpecific"] == "true" && UserGoalEntry.Text != StudentInfo["HoursGoal"]))
+                {
                     string response = await APIRequest.RequestAsync("UserSpecificGoal", true, new Dictionary<string, string>
                     {
                         {"userId", StudentInfo["ID"] },
