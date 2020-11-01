@@ -1,6 +1,4 @@
-﻿using Microcharts;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,21 +9,25 @@ namespace Volunteerio.Views
     public partial class Administrator_Student_Info : ContentPage
     {
         private Dictionary<string, string> StudentInfo { get; set; }
-        private string userGoal { get; set; } = "";
+        private string UserGoal { get; set; } = "";
+        private string UserGroup { get; set; } = "";
 
         public Administrator_Student_Info(Dictionary<string, string> Student)
         {
             InitializeComponent();
 
             StudentInfo = Student;
+        }
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
 
             try
             {
-                string response = APIRequest.Request("StudentHours", true, new Dictionary<string, string>()
+                Dictionary<string, List<Dictionary<string, string>>> StudentHours = await APIRequest<Dictionary<string, List<Dictionary<string, string>>>>.RequestAsync("StudentHours", true, new Dictionary<string, string>()
                 {
-                    {"id", Student["ID"] }
+                    {"id", StudentInfo["ID"] }
                 });
-                Dictionary<string, List<Dictionary<string, string>>> StudentHours = JsonConvert.DeserializeObject<Dictionary<string, List<Dictionary<string, string>>>>(response);
 
                 StudentName.Text += StudentInfo["Name"];
                 StudentId.Text += StudentInfo["StuId"];
@@ -34,7 +36,8 @@ namespace Volunteerio.Views
                 foreach (var Hour in StudentHours["Hours"])
                 {
                     TapGestureRecognizer click = new TapGestureRecognizer();
-                    click.Tapped += (s, e) => {
+                    click.Tapped += (s, e) =>
+                    {
                         HoursListView_ItemSelected(Hour);
                     };
                     StackLayout stack = new StackLayout
@@ -79,23 +82,29 @@ namespace Volunteerio.Views
                     });
                 }
 
-                //PastOppsListView.ItemsSource = StudentHours["PastOpps"];
-                //HoursListView.ItemsSource = StudentHours["Hours"];
+                if (StudentInfo["userSpecific"] == "true")
+                {
+                    UserGoalEntry.Text = StudentInfo["HoursGoal"];
+                }
 
-                //if (StudentHours["PastOpps"].Count == 0)
-                //{
-                //    PastOppsListView.HeightRequest = 50;
-                //}
-                //if (StudentHours["Hours"].Count == 0)
-                //{
-                //    HoursListView.HeightRequest = 50;
-                //}
+                var Groups = await APIRequest<List<Dictionary<string, string>>>.RequestAsync("getGroups", true, new Dictionary<string, string>());
+
+                var GroupsClean = new List<string>() {
+                    "None"
+                };
+
+                foreach (var i in Groups)
+                {
+                    GroupsClean.Add(i["name"]);
+                }
+
+                GroupPicker.ItemsSource = GroupsClean;
+                GroupPicker.SelectedItem = StudentInfo["group"];
             }
             catch
             {
-                DisplayAlert("Server Error", "Please Try Agin Later", "OK");
+                await DisplayAlert("Server Error", "Please Try Agin Later", "OK");
             }
-
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)
@@ -160,14 +169,29 @@ namespace Volunteerio.Views
 
             try
             {
-                string response = APIRequest.Request("UserSpecificGoal", true, new Dictionary<string, string>
+                if ((StudentInfo["userSpecific"] == "false" && UserGoalEntry.Text != "") || (StudentInfo["userSpecific"] == "true" && UserGoalEntry.Text != StudentInfo["HoursGoal"]))
                 {
-                    {"userId", StudentInfo["ID"] },
-                    {"goal", userGoal }
-                });
+                    string response = await APIRequest.RequestAsync("UserSpecificGoal", true, new Dictionary<string, string>
+                    {
+                        {"userId", StudentInfo["ID"] },
+                        {"goal", UserGoal }
+                    });
 
-                StudentInfo["HoursGoal"] = response;
-                Hours.Text = "No. of Hours: " + StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
+                    StudentInfo["HoursGoal"] = response;
+                    Hours.Text = "No. of Hours: " + StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
+                }
+
+                if (UserGroup != "")
+                {
+                    string response = await APIRequest.RequestAsync("changeUserGroup", true, new Dictionary<string, string>
+                    {
+                        {"userId", StudentInfo["ID"] },
+                        {"groupName", UserGroup }
+                    });
+
+                    StudentInfo["HoursGoal"] = response;
+                    Hours.Text = "No. of Hours: " + StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
+                }
 
             }
             catch
@@ -179,9 +203,13 @@ namespace Volunteerio.Views
 
         private void UserGoalEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            userGoal = ((Entry)sender).Text;
+            UserGoal = ((Entry)sender).Text;
         }
 
+        private void GroupPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UserGroup = GroupPicker.SelectedItem.ToString();
+        }
     }
 
 }

@@ -1,10 +1,10 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using Xamarin.Forms;
-using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Volunteerio
 {
@@ -68,7 +68,7 @@ namespace Volunteerio
                     return JsonConvert.DeserializeObject<T>(response.Content);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 throw new ServerErrorException(ErrorCode);
             }

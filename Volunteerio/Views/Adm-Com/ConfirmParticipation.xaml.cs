@@ -10,7 +10,7 @@ namespace Volunteerio.Views
     public partial class ConfirmParticipation : ContentPage
     {
 
-        private Dictionary<string, string> data;
+        private readonly Dictionary<string, string> data;
 
         public ConfirmParticipation(Dictionary<string, string> data)
         {

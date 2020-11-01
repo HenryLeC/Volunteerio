@@ -10,8 +10,8 @@ namespace Volunteerio.Views
     public partial class ShowHours : ContentPage
     {
 
-        private Dictionary<string, string> Hr = new Dictionary<string, string>();
-        private Dictionary<string, string> StudentInfo = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> Hr = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> StudentInfo = new Dictionary<string, string>();
 
         public ShowHours(Dictionary<string, string> Hr, Dictionary<string, string> StudentInfo)
         {
