@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Volunteerio.Views.AdminOnly.GroupsEditor"
+             xmlns:controls="clr-namespace:Volunteerio.Controls"
+             xmlns:converters="clr-namespace:Volunteerio.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:JsonToObjectConverter x:Key="JsonToObject" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--Main Content-->
+            <Grid HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" Grid.Row="0" />
+                    <RowDefinition Height="auto" Grid.Row="1" />
+                    <RowDefinition Height="*" Grid.Row="2" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <controls:HeaderControl Text="Student Groups" Grid.Row="0" Grid.Column="0" />
+                <Button Text="+" HorizontalOptions="End" FontSize="30" Grid.Row="1" Padding="10, 5" Clicked="AddButton_Clicked" HeightRequest="50" WidthRequest="50" CornerRadius="30"/>
+
+                <StackLayout x:Name="GroupsStack" Grid.Row="2" >
+                    <StackLayout.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped" />
+                    </StackLayout.GestureRecognizers>
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Expander Margin="5, 5" >
+                                <Expander.Header>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=[name]}" FontSize="20" />
+                                        <Label Text="{Binding Path=[hoursGoal]}" FontSize="20" />
+                                    </StackLayout>
+                                </Expander.Header>
+                                <StackLayout BindableLayout.ItemsSource="{Binding Path=[students], Converter={StaticResource JsonToObject}}" >
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Label Text="{Binding Path=[name]}" FontSize="20" />
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            </Expander>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Grid>
+
+            <!--Popup Window-->
+            <Frame x:Name="AddPopup" AbsoluteLayout.LayoutBounds="0.5,0.5,300,200" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="false" Opacity="0">
+                <StackLayout>
+                    <Entry Placeholder="Group Name" x:Name="GroupNameEntry" TextChanged="GroupNameEntry_TextChanged"/>
+                    <Entry Placeholder="Group Hours Goal" x:Name="GroupGoalEntry" TextChanged="GroupGoalEntry_TextChanged"/>
+                    <Button x:Name="CreateButton" Clicked="CreateButton_Clicked" Text="Create" CornerRadius="20" Margin="10" HeightRequest="40"/>
+                </StackLayout>
+            </Frame>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

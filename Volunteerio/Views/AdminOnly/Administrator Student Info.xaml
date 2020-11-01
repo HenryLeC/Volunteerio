@@ -35,43 +35,13 @@
                     </Expander.Header>
                     <StackLayout x:Name="PastHoursStack" />
                 </Expander>
-            
-                <!--<ListView RowHeight="70" x:Name="PastOppsListView" Margin="0, 5, 0 , 0" HeightRequest="200" IsEnabled="False">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout>
-                                    <Label Text="{Binding Path=[Name]}" FontSize="20"/>
-                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
-                <Label Text="Manually Added Hours" FontSize="30" TextColor="#000000" HorizontalOptions="Center"/>
-                <ListView RowHeight="70" x:Name="HoursListView" Margin="0, 5, 0 , 0" HeightRequest="200" ItemSelected="HoursListView_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Vertical" Grid.Column="0">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Path=[Reason]}" FontSize="20"/>
-                                        <Label Text=" | " FontSize="20"/>
-                                        <Label Text="{Binding Path=[Confirmed]}" FontSize="20"/>
-                                    </StackLayout>
-                                    <Label Text="{Binding Path=[Hours]}" FontSize="20"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
             </StackLayout>
     
             <!--Popup Window-->
-            <Frame x:Name="Popup" AbsoluteLayout.LayoutBounds="0.5,0.5,300,150" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="false" Opacity="0">
+            <Frame x:Name="Popup" AbsoluteLayout.LayoutBounds="0.5,0.5,300,200" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="false" Opacity="0">
                 <StackLayout>
                     <Entry Placeholder="Hours Goal" x:Name="UserGoalEntry" TextChanged="UserGoalEntry_TextChanged"/>
+                    <Picker x:Name="GroupPicker" SelectedIndexChanged="GroupPicker_SelectedIndexChanged" />
                     <Button x:Name="ClosePopup" Clicked="ClosePopup_Clicked" Text="Confirm" CornerRadius="20" Margin="10" HeightRequest="40"/>
                 </StackLayout>
             </Frame>

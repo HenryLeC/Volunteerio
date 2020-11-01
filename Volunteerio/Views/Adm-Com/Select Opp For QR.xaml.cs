@@ -45,7 +45,7 @@ namespace Volunteerio.Views
 
                 Navigation.PushAsync(new Views.Sign_In_Students(Code));
             }
-            catch (Exception ex)
+            catch
             {
                 DisplayAlert("Server Error", "Please Try Agin Later", "OK");
             }

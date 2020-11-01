@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Volunteerio.Views.AdminOnly;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +17,7 @@ namespace Volunteerio.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class School_Settings : ContentPage
     {
-        private List<List<View>> users = new List<List<View>>();
+        private readonly List<List<View>> users = new List<List<View>>();
         public School_Settings()
         {
             InitializeComponent();
@@ -256,6 +257,11 @@ namespace Volunteerio.Views
                 ai.IsRunning = false;
                 await DisplayAlert("Error", "Server Error, Please Try Again Later", "OK");
             }
+        }
+
+        private void EditGroupsBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GroupsEditor());
         }
     }
 }

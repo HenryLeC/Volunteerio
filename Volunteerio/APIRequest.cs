@@ -68,7 +68,7 @@ namespace Volunteerio
                     return JsonConvert.DeserializeObject<T>(response.Content);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 throw new ServerErrorException(ErrorCode);
             }
