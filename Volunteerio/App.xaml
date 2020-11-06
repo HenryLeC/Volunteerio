@@ -11,10 +11,10 @@
         <ResourceDictionary>
             <Style TargetType="Button">
                 <Setter Property="android:VisualElement.Elevation" Value="0"/>
+                <Setter Property="BackgroundColor" Value="#d3d3d3"/>
+                <Setter Property="TextColor" Value="Black"/>
             </Style>
-            <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="ZillaSlab"/>
-            </Style>
+            
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
                 <Setter Property="ios:Page.UseSafeArea" Value="False"/>

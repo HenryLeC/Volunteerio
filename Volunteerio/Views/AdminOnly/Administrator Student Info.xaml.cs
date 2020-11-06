@@ -11,6 +11,7 @@ namespace Volunteerio.Views
         private Dictionary<string, string> StudentInfo { get; set; }
         private string UserGoal { get; set; } = "";
         private string UserGroup { get; set; } = "";
+        private Dictionary<string, string> GroupNameToID { get; set; } = new Dictionary<string, string>() { { "None", "-10" } };
 
         public Administrator_Student_Info(Dictionary<string, string> Student)
         {
@@ -96,6 +97,7 @@ namespace Volunteerio.Views
                 foreach (var i in Groups)
                 {
                     GroupsClean.Add(i["name"]);
+                    GroupNameToID.Add(i["name"], i["id"]);
                 }
 
                 GroupPicker.ItemsSource = GroupsClean;
@@ -186,7 +188,7 @@ namespace Volunteerio.Views
                     string response = await APIRequest.RequestAsync("changeUserGroup", true, new Dictionary<string, string>
                     {
                         {"userId", StudentInfo["ID"] },
-                        {"groupName", UserGroup }
+                        {"groupId", GroupNameToID[UserGroup] }
                     });
 
                     StudentInfo["HoursGoal"] = response;

@@ -11,6 +11,7 @@ namespace Volunteerio.Views.AdminOnly
     {
         private string GroupName = "";
         private string GroupGoal = "";
+        private readonly Dictionary<string, string> GroupNameToId = new Dictionary<string, string>();
 
         public GroupsEditor()
         {
@@ -24,6 +25,15 @@ namespace Volunteerio.Views.AdminOnly
             var data = await APIRequest<List<Dictionary<string, string>>>.RequestAsync("getGroups", true, new Dictionary<string, string>());
 
             BindableLayout.SetItemsSource(GroupsStack, data);
+
+            GroupNameToId.Clear();
+
+            foreach (var i in data)
+            {
+                GroupNameToId.Add(i["name"], i["id"]);
+                RemoveGroupPicker.Items.Add(i["name"]);
+            }
+
         }
 
         private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
@@ -67,6 +77,38 @@ namespace Volunteerio.Views.AdminOnly
         private void GroupGoalEntry_TextChanged(object sender, TextChangedEventArgs e)
         {
             GroupGoal = ((Entry)sender).Text;
+        }
+
+        private async void ConfirmDelete_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                string res = APIRequest.Request("deleteGroup", true, new Dictionary<string, string>
+                {
+                    {"groupId", GroupNameToId[RemoveGroupPicker.SelectedItem as string] }
+                });
+
+                OnAppearing();
+            }
+            catch
+            {
+                await DisplayAlert("Server Error", "Server Error, Server Error, Please try again later", "Ok");
+            }
+
+            await RemovePopup.FadeTo(0, 200);
+            RemovePopup.IsVisible = false;
+        }
+
+        private async void DenyDelete_Clicked(object sender, EventArgs e)
+        {
+            await RemovePopup.FadeTo(0, 200);
+            RemovePopup.IsVisible = false;
+        }
+
+        private async void RemButton_Clicked(object sender, EventArgs e)
+        {
+            RemovePopup.IsVisible = true;
+            await RemovePopup.FadeTo(1, 200);
         }
     }
 }

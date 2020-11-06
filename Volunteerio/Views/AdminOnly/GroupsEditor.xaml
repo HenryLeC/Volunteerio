@@ -22,40 +22,55 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <controls:HeaderControl Text="Student Groups" Grid.Row="0" Grid.Column="0" />
-                <Button Text="+" HorizontalOptions="End" FontSize="30" Grid.Row="1" Padding="10, 5" Clicked="AddButton_Clicked" HeightRequest="50" WidthRequest="50" CornerRadius="30"/>
-
-                <StackLayout x:Name="GroupsStack" Grid.Row="2" >
-                    <StackLayout.GestureRecognizers>
-                        <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped" />
-                    </StackLayout.GestureRecognizers>
-                    <BindableLayout.ItemTemplate>
-                        <DataTemplate>
-                            <Expander Margin="5, 5" >
-                                <Expander.Header>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Path=[name]}" FontSize="20" />
-                                        <Label Text="{Binding Path=[hoursGoal]}" FontSize="20" />
-                                    </StackLayout>
-                                </Expander.Header>
-                                <StackLayout BindableLayout.ItemsSource="{Binding Path=[students], Converter={StaticResource JsonToObject}}" >
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <Label Text="{Binding Path=[name]}" FontSize="20" />
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
-                            </Expander>
-                        </DataTemplate>
-                    </BindableLayout.ItemTemplate>
+                <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="End" HeightRequest="50">
+                    <Button x:Name="AddButton" Text="+" HorizontalOptions="End" FontSize="30" Grid.Row="1" Padding="10, 5" Clicked="AddButton_Clicked" HeightRequest="50" WidthRequest="50" CornerRadius="20"/>
+                    <Button x:Name="RemButton" Text="-" HorizontalOptions="End" FontSize="30" Grid.Row="1" Padding="10, 5" Clicked="RemButton_Clicked" HeightRequest="50" WidthRequest="50" CornerRadius="20"/>
                 </StackLayout>
+
+                <ScrollView Grid.Row="2" >
+                    <StackLayout x:Name="GroupsStack" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout.GestureRecognizers>
+                            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped" />
+                        </StackLayout.GestureRecognizers>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Expander Margin="5, 5" >
+                                    <Expander.Header>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Path=[name]}" FontSize="20" />
+                                            <Label Text="{Binding Path=[hoursGoal]}" FontSize="20" />
+                                        </StackLayout>
+                                    </Expander.Header>
+                                    <StackLayout BindableLayout.ItemsSource="{Binding Path=[students], Converter={StaticResource JsonToObject}}" >
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label Text="{Binding Path=[name]}" FontSize="20" />
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </Expander>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+
+                    </StackLayout>
+                </ScrollView>
             </Grid>
 
-            <!--Popup Window-->
+            <!--Add Window-->
             <Frame x:Name="AddPopup" AbsoluteLayout.LayoutBounds="0.5,0.5,300,200" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="false" Opacity="0">
                 <StackLayout>
                     <Entry Placeholder="Group Name" x:Name="GroupNameEntry" TextChanged="GroupNameEntry_TextChanged"/>
                     <Entry Placeholder="Group Hours Goal" x:Name="GroupGoalEntry" TextChanged="GroupGoalEntry_TextChanged"/>
                     <Button x:Name="CreateButton" Clicked="CreateButton_Clicked" Text="Create" CornerRadius="20" Margin="10" HeightRequest="40"/>
+                </StackLayout>
+            </Frame>
+            <Frame x:Name="RemovePopup" AbsoluteLayout.LayoutBounds="0.5,0.5,300,200" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisible="false" Opacity="0">
+                <StackLayout>
+                    <Picker x:Name="RemoveGroupPicker" />
+                    <StackLayout Orientation="Horizontal" >
+                        <Button x:Name="ConfirmDelete" Clicked="ConfirmDelete_Clicked" Text="Confirm" CornerRadius="20" Margin="10" HeightRequest="40"/>
+                        <Button x:Name="DenyDelete" Clicked="DenyDelete_Clicked" Text="Deny" CornerRadius="20" Margin="10" HeightRequest="40"/>
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             
