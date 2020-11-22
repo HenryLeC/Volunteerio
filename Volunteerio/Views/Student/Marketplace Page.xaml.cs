@@ -60,7 +60,7 @@ namespace Volunteerio.Views
         {
             try
             {
-                string Response = APIRequest.Request("Opps", true, new Dictionary<string, string>() {
+                string Response = await APIRequest.RequestAsync("Opps", true, new Dictionary<string, string>() {
                     {"filterName", NameFilter.Text },
                     {"filterDate", DateFilter.Date.ToString("yyyy-MM-dd'T'HH:mm:ss", CultureInfo.InvariantCulture) }
                 });

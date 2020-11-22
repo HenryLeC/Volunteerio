@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Volunteerio.Views.Student;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZXing.Net.Mobile.Forms;
@@ -41,40 +42,47 @@ namespace Volunteerio.Views
             Navigation.PopToRootAsync();
         }
 
-        private void ScanQrCodeButton_Clicked(object sender, EventArgs e)
+        private async void ScanQrCodeButton_Clicked(object sender, EventArgs e)
         {
-            var scanPage = new ZXingScannerPage();
-            Xamarin.Forms.NavigationPage.SetHasNavigationBar(scanPage, true);
+            await Navigation.PushAsync(new Clock_Page());
+
+            //#if __ANDROID__
+            // // Initialize the scanner first so it can track the current context
+            // MobileBarcodeScanner.Initialize (Application);
+            //#endif
+
+            //var scanPage = new ZXingScannerPage();
+            //NavigationPage.SetHasNavigationBar(scanPage, true);
 
 
-            Navigation.PushAsync(scanPage);
+            //await Navigation.PushAsync(scanPage);
 
-            scanPage.OnScanResult += (result) =>
-            {
-                // Stop scanning
-                scanPage.IsScanning = false;
+            //scanPage.OnScanResult += (result) =>
+            //{
+            //    // Stop scanning
+            //    scanPage.IsScanning = false;
 
-                // Pop the page and show the result
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    await Navigation.PopAsync();
-                    try
-                    {
-                        string APIResponse = APIRequest.Request("ClockInOut", true, new Dictionary<string, string>()
-                        {
-                            {"QrCode", result.Text }
-                        });
+            //    // Pop the page and show the result
+            //    Device.BeginInvokeOnMainThread(async () =>
+            //    {
+            //        await Navigation.PopAsync();
+            //        try
+            //        {
+            //            string APIResponse = APIRequest.Request("ClockInOut", true, new Dictionary<string, string>()
+            //            {
+            //                {"QrCode", result.Text }
+            //            });
 
-                        Dictionary<string, string> responseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(APIResponse);
+            //            Dictionary<string, string> responseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(APIResponse);
 
-                        await DisplayAlert(responseDict["header"], responseDict["msg"], "OK");
-                    }
-                    catch
-                    {
-                        await DisplayAlert("Server Error", "Please Try Agin Later", "OK");
-                    }
-                });
-            };
+            //            await DisplayAlert(responseDict["header"], responseDict["msg"], "OK");
+            //        }
+            //        catch
+            //        {
+            //            await DisplayAlert("Server Error", "Please Try Agin Later", "OK");
+            //        }
+            //    });
+            //};
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)

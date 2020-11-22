@@ -21,6 +21,7 @@ namespace Volunteerio.Views
             OppSponsor.Text += Opp["Sponsor"];
             OppClass.Text += Opp["Class"];
             OppVols.Text = Opp["CurrentVols"] + " of " + Opp["MaxVols"] + " Volunteers";
+            OppLocation.Text += Opp["Location"];
 
             if (int.Parse(Opp["CurrentVols"]) >= int.Parse(Opp["MaxVols"]) || (string)Application.Current.Properties["Role"] == "admin")
             {
@@ -47,7 +48,6 @@ namespace Volunteerio.Views
 
                 Dictionary<string, string> OppInfo = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
 
-                OppLocation.Text += OppInfo["Location"];
                 OppDesc.Text = OppInfo["Description"];
 
             }
