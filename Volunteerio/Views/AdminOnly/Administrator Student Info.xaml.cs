@@ -12,6 +12,7 @@ namespace Volunteerio.Views
         private string UserGoal { get; set; } = "";
         private string UserGroup { get; set; } = "";
         private Dictionary<string, string> GroupNameToID { get; set; } = new Dictionary<string, string>() { { "None", "-10" } };
+        private bool Appeared = false;
 
         public Administrator_Student_Info(Dictionary<string, string> Student)
         {
@@ -22,91 +23,97 @@ namespace Volunteerio.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-
-            try
+            
+            if (!Appeared)
             {
-                Dictionary<string, List<Dictionary<string, string>>> StudentHours = await APIRequest<Dictionary<string, List<Dictionary<string, string>>>>.RequestAsync("StudentHours", true, new Dictionary<string, string>()
+                Appeared = true;
+                try
                 {
-                    {"id", StudentInfo["ID"] }
-                });
-
-                StudentName.Text += StudentInfo["Name"];
-                StudentId.Text += StudentInfo["StuId"];
-                Hours.Text += StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
-
-                foreach (var Hour in StudentHours["Hours"])
-                {
-                    TapGestureRecognizer click = new TapGestureRecognizer();
-                    click.Tapped += (s, e) =>
+                    Dictionary<string, List<Dictionary<string, string>>> StudentHours = await APIRequest<Dictionary<string, List<Dictionary<string, string>>>>.RequestAsync("StudentHours", true, new Dictionary<string, string>()
                     {
-                        HoursListView_ItemSelected(Hour);
-                    };
-                    StackLayout stack = new StackLayout
-                    {
-                        Orientation = StackOrientation.Vertical,
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = Hour["Reason"] + " | " + Hour["Confirmed"],
-                                FontSize = 20.0
-                            },
-                            new Label
-                            {
-                                Text = Hour["Hours"],
-                                FontSize = 20.0
-                            }
-                        }
-                    };
-                    stack.GestureRecognizers.Add(click);
-                    PastHoursStack.Children.Add(stack);
-                }
-
-                foreach (var Hour in StudentHours["PastOpps"])
-                {
-                    PastOppsStack.Children.Add(new StackLayout
-                    {
-                        Orientation = StackOrientation.Vertical,
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = Hour["Name"],
-                                FontSize = 20.0
-                            },
-                            new Label
-                            {
-                                Text = Hour["Hours"],
-                                FontSize = 20.0
-                            }
-                        }
+                        {"id", StudentInfo["ID"] }
                     });
-                }
 
-                if (StudentInfo["userSpecific"] == "true")
+                    StudentName.Text += StudentInfo["Name"];
+                    StudentId.Text += StudentInfo["StuId"];
+                    Hours.Text += StudentInfo["Hours"] + " of " + StudentInfo["HoursGoal"];
+
+                    foreach (var Hour in StudentHours["Hours"])
+                    {
+                        TapGestureRecognizer click = new TapGestureRecognizer();
+                        click.Tapped += (s, e) =>
+                        {
+                            HoursListView_ItemSelected(Hour);
+                        };
+                        StackLayout stack = new StackLayout
+                        {
+                            Orientation = StackOrientation.Vertical,
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = Hour["Reason"] + " | " + Hour["Confirmed"],
+                                    FontSize = 20.0
+                                },
+                                new Label
+                                {
+                                    Text = Hour["Hours"],
+                                    FontSize = 20.0
+                                }
+                            }
+                        };
+                        stack.GestureRecognizers.Add(click);
+                        PastHoursStack.Children.Add(stack);
+                    }
+
+                    foreach (var Hour in StudentHours["PastOpps"])
+                    {
+                        PastOppsStack.Children.Add(new StackLayout
+                        {
+                            Orientation = StackOrientation.Vertical,
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = Hour["Name"],
+                                    FontSize = 20.0
+                                },
+                                new Label
+                                {
+                                    Text = Hour["Hours"],
+                                    FontSize = 20.0
+                                }
+                            }
+                        });
+                    }
+
+                    if (StudentInfo["userSpecific"] == "true")
+                    {
+                        UserGoalEntry.Text = StudentInfo["HoursGoal"];
+                    }
+
+                    var Groups = await APIRequest<List<Dictionary<string, string>>>.RequestAsync("getGroups", true, new Dictionary<string, string>());
+
+                    var GroupsClean = new List<string>() {
+                        "None"
+                    };
+
+                    foreach (var i in Groups)
+                    {
+                        GroupsClean.Add(i["name"]);
+                        GroupNameToID.Add(i["name"], i["id"]);
+                    }
+
+                    GroupPicker.ItemsSource = GroupsClean;
+                    GroupPicker.SelectedItem = StudentInfo["group"];
+                }
+                catch
                 {
-                    UserGoalEntry.Text = StudentInfo["HoursGoal"];
+                    await DisplayAlert("Server Error", "Please Try Agin Later", "OK");
                 }
 
-                var Groups = await APIRequest<List<Dictionary<string, string>>>.RequestAsync("getGroups", true, new Dictionary<string, string>());
-
-                var GroupsClean = new List<string>() {
-                    "None"
-                };
-
-                foreach (var i in Groups)
-                {
-                    GroupsClean.Add(i["name"]);
-                    GroupNameToID.Add(i["name"], i["id"]);
-                }
-
-                GroupPicker.ItemsSource = GroupsClean;
-                GroupPicker.SelectedItem = StudentInfo["group"];
             }
-            catch
-            {
-                await DisplayAlert("Server Error", "Please Try Agin Later", "OK");
-            }
+
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)

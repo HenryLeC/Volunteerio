@@ -57,11 +57,12 @@ namespace Volunteerio.Views
                 {
                     {"Name", Name },
                     {"Date", Date.ToString("yyyy-MM-dd'T'HH:mm:sszzz", CultureInfo.InvariantCulture) },
-                    {"Location", Location },
+                    {"Location", OppLocation.IsVisible ? Location: "" },
                     {"Hours", Hours.ToString() },
                     {"Class", Class },
                     {"Description", DescriptionEditor.Text },
-                    {"MaxVols", MaxVols.ToString() }
+                    {"MaxVols", MaxVols.ToString() },
+                    {"Virtual", VirtualSelector.IsToggled ? "True" : "False" }
                 };
 
                 string response = APIRequest.Request("AddOpp", true, Attributes);
@@ -92,8 +93,11 @@ namespace Volunteerio.Views
             {
                 Navigation.PushAsync(new Views.Administrator_Menu());
             }
+        }
 
-
+        private void VirtualSelector_Toggled(object sender, ToggledEventArgs e)
+        {
+            OppLocation.IsVisible = !OppLocation.IsVisible;
         }
     }
 }

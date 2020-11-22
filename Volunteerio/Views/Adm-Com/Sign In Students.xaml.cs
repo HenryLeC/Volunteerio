@@ -15,6 +15,7 @@ namespace Volunteerio.Views
             Barcode.BarcodeOptions = new ZXing.Common.EncodingOptions() { Height = 300, Width = 300 };
             Barcode.BarcodeFormat = BarcodeFormat.QR_CODE;
             Barcode.BarcodeValue = Code;
+            OppCode.Text = Code;
         }
 
         private void HamburgerButton_Clicked(object sender, EventArgs e)

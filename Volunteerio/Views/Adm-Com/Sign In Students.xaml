@@ -14,7 +14,8 @@
             </StackLayout.GestureRecognizers>
             <controls:HeaderControl Text="Sign In Students"/>
             <zxing:ZXingBarcodeImageView Margin="0, 20, 0, 0" x:Name="Barcode" HeightRequest="300" WidthRequest="300"/>
-            <Label Text="Have Students Scan Code In App To Get Hours" TextColor="#000000" FontSize="40" Margin="39,60,0,0"/>
+            <Label x:Name="OppCode" HorizontalOptions="Center" FontSize="30" CharacterSpacing="0" />
+            <Label Text="Have Students Scan Or Enter Code To Get Hours" TextColor="#000000" FontSize="30" HorizontalTextAlignment="Center" Padding="20" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
