@@ -39,8 +39,8 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>1.2.3</string>
-  <key>CFBundleIconName</key>
-  <string>Volunteerio</string>
+	<string>1.2.4</string>
+	<key>CFBundleIconName</key>
+	<string>Volunteerio</string>
 </dict>
 </plist>
